@@ -1,3 +1,7 @@
-$error.getName()
-$error.getType()
-$error.getTag()
+#foreach($error in $errors)
+  #if($error.getType() == "post")
+    <h3>$error.getName()</h3>
+    <p>$error.getTag()</p>
+  #end
+
+#end
