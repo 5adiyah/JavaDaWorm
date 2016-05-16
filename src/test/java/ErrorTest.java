@@ -38,27 +38,27 @@ public class ErrorTest {
     assertTrue(myError.equals(savedError));
   }
 
-  // @Test
-  // public void addSolution_solutionAddedToError_true() {
-  //   Solution mySolution = new Solution("Solution", "Some text", "A tag");
-  //   mySolution.save();
-  //   Error myError = new Error("This recipe sucks.");
-  //   myError.save();
-  //   myError.addSolution(mySolution);
-  //   Solution savedSolution = myError.getSolution().get(0);
-  //   assertTrue(mySolution.equals(savedSolution));
-  // }
+  @Test
+  public void addSolution_solutionAddedToError_true() {
+    Solution mySolution = new Solution("Solution", "Some text", "A tag");
+    mySolution.save();
+    Error myError = new Error("Error Name", "Error type", "A Tag");
+    myError.save();
+    myError.addSolutions(mySolution);
+    Solution savedSolution = myError.getSolutions().get(0);
+    assertTrue(mySolution.equals(savedSolution));
+  }
 
 
-  // @Test
-  // public void delete_reviewDeletedFromAllTables_true() {
-  //   Error myError = new Error("Error Name", "Error type", "A Tag");
-  //   myError.save();
-  //   Solution mySolution = new Solution("Solution", "Some text", "A tag");
-  //   mySolution.save();
-  //   myError.addSolution(mySolution);
-  //   myError.delete();
-  //   assertEquals(0, Error.all().size());
-  // }
+  @Test
+  public void delete_reviewDeletedFromAllTables_true() {
+    Error myError = new Error("Error Name", "Error type", "A Tag");
+    myError.save();
+    Solution mySolution = new Solution("Solution", "Some text", "A tag");
+    mySolution.save();
+    myError.addSolutions(mySolution);
+    myError.delete();
+    assertEquals(0, Error.allErrors().size());
+  }
 
 }
