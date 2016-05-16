@@ -9,3 +9,17 @@ $error.getType()
     </li><a href = "/admin/$error.getId()/solution/$solution.getId()">$solution.getName()</a></li>
   #end
 #end
+
+<form class="form-group" action="/admin/errors/:eId/solutions/:sId" method="post">
+  Name: <input type="text" name="name">
+  Description: <input type="text" name="description">
+  <input type="hidden" name="errorID" value="$error.getId()">
+  <select name="tags">
+    <option value="pre">typos</option>
+    <option value="post">semi-colons</option>
+    <option value="post">Instantiation</option>
+    <option value="post">Null-Pointer</option>
+    <option value="post">Stale Element Exception</option>
+  </select>
+  <input type="submit" value="Submit">
+</form>
