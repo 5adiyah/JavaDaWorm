@@ -9,7 +9,7 @@ public class Solution {
   private String description;
   private String tag;
 
-  public static Solution (int id, String name, String description, String tag) {
+  public Solution (String name, String description, String tag) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -120,14 +120,14 @@ public List<Error> getErrors() {
       .addParameter("solution_id", this.getId())
       .executeAndFetch(Integer.class);
 
-    List<Error> errors = new ArrayList<Venue>();
+    List<Error> errors = new ArrayList<Error>();
 
-    for(errorId : errorIds) {
+    for(Integer errorId : errorIds) {
       String errorQuery = "SELECT * FROM errors WHERE id = :errorId";
       Error error = con.createQuery(errorQuery)
         .addParameter("errorId", errorId)
         .executeAndFetchFirst(Error.class);
-      errors.addError(error);
+      errors.add(error);
     }
     return errors;
   }

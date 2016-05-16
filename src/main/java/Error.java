@@ -75,35 +75,35 @@ public class Error {
     }
   }
 
-  // public void addSolutions(Solution solution) {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String sql = "INSERT INTO errors_solutions (error_id, solution_id) VALUES (:error_id, :solution_id)";
-  //     con.createQuery(sql)
-  //     .addParameter("error_id", this.getId())
-  //     .addParameter("solution_id", solution.getId())
-  //     .executeUpdate();
-  //   }
-  // }
-  //
-  // public List<Solution> getSolutions() {
-  //   try(Connection con = DB.sql2o.open()) {
-  //     String joinQuery = "SELECT solution_id FROM errors_solutions WHERE error_id = :error_id";
-  //     List<Integer> solutionIds = con.createQuery(joinQuery)
-  //     .addParameter("error_id", this.getId())
-  //     .executeAndFetch(Integer.class);
-  //
-  //     List<Solution> solutions = new ArrayList<Solution>();
-  //
-  //     for(Integer solutionId : solutionIds) {
-  //       String solutionQuery = "SELECT * FROM solutions WHERE id = :solutionId";
-  //       Solution solution = con.createQuery(solutionQuery)
-  //       .addParameter("solutionId", solutionId)
-  //       .executeAndFetchFirst(Solution.class);
-  //       solutions.add(solution);
-  //     }
-  //     return solutions;
-  //   }
-  // }
+  public void addSolutions(Solution solution) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO errors_solutions (error_id, solution_id) VALUES (:error_id, :solution_id)";
+      con.createQuery(sql)
+      .addParameter("error_id", this.getId())
+      .addParameter("solution_id", solution.getId())
+      .executeUpdate();
+    }
+  }
+
+  public List<Solution> getSolutions() {
+    try(Connection con = DB.sql2o.open()) {
+      String joinQuery = "SELECT solution_id FROM errors_solutions WHERE error_id = :error_id";
+      List<Integer> solutionIds = con.createQuery(joinQuery)
+      .addParameter("error_id", this.getId())
+      .executeAndFetch(Integer.class);
+
+      List<Solution> solutions = new ArrayList<Solution>();
+
+      for(Integer solutionId : solutionIds) {
+        String solutionQuery = "SELECT * FROM solutions WHERE id = :solutionId";
+        Solution solution = con.createQuery(solutionQuery)
+        .addParameter("solutionId", solutionId)
+        .executeAndFetchFirst(Solution.class);
+        solutions.add(solution);
+      }
+      return solutions;
+    }
+  }
 
   public void delete() {
     try(Connection con = DB.sql2o.open()) {
