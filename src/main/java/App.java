@@ -21,8 +21,8 @@ public class App {
 
     get("/admin", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put("template", "templates/admin_home.vtl");
       model.put("errors", Error.allErrors());
+      model.put("template", "templates/admin_home.vtl");
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
 
@@ -35,29 +35,30 @@ public class App {
     post("admin/errors", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
-      String type = request.queryParams("type");
+      String type = request.queryParams("types");
       String tags = request.queryParams("tags");
       Error newError = new Error(name, type, tags);
       newError.save();
-      model.put("newError", newError);
-      response.redirect("/admin_home");
+      model.put("error", newError);
+      model.put("errors", Error.allErrors());
+      response.redirect("/admin");
       return null;
     });
 
     get("/admin/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
-      Error error = Error.find(Integer.parseInt(request.params(":id")));
-      model.put("errors", error);
-      model.put("error", "admin_error.vtl");
+      Error newError = Error.find(Integer.parseInt(request.params(":id")));
+      model.put("error", newError);
+      model.put("template", "templates/admin_error.vtl");
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
     get("/admin/errors/:eId/solutions/:sId", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error error = Error.find(Integer.parseInt(request.params(":eId")));
-      Solution solution = Solution.find(Integer.parseInt(request,params(":sId")));
+      Solution solution = Solution.find(Integer.parseInt(request.params(":sId")));
       model.put("solutions", solution);
-      model.put("solution", "admin_solution.vtl");
+      model.put("template", "admin_solution.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
