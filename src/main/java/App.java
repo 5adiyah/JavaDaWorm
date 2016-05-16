@@ -19,6 +19,20 @@ public class App {
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
 
+    get("/pre_error", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/pre_error.vtl");
+      model.put("errors", Error.allErrors());
+      return new ModelAndView(model, layout);
+    },new VelocityTemplateEngine());
+
+    get("/post_error", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/post_error.vtl");
+      model.put("error", Error.allErrors());
+      return new ModelAndView(model, layout);
+    },new VelocityTemplateEngine());
+
     get("/admin", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("errors", Error.allErrors());
