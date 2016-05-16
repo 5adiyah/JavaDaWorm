@@ -9,7 +9,11 @@ public class Solution {
   private String description;
   private String tag;
 
+<<<<<<< HEAD
   public Solution (String name, String description, String tag) {
+=======
+  public Solution (int id, String name, String description, String tag) {
+>>>>>>> 8a2e8ddf2adbf823d9dc9fe967e1a91ec37f1426
     this.id = id;
     this.name = name;
     this.description = description;
