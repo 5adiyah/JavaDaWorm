@@ -1,0 +1,19 @@
+<div class="container">
+  <h3>Add Error</h3>
+  <form action="/admin_errors" method="post">
+    <label for="name"></label>
+    <input type="text" name="name">Name</input>
+    <select name="types">
+      <option value="pre">Pre Error</option>
+      <option value="post">Post Error</option>
+    </select>
+    <select name="tags">
+      <option value="pre">typos</option>
+      <option value="post">semi-colons</option>
+      <option value="post">Instantiation</option>
+      <option value="post">Null-Pointer</option>
+      <option value="post">Stale Element Exception</option>
+    </select>
+    <input class="button-primary" type="submit" value="Submit"></input>
+  </form>
+</div>

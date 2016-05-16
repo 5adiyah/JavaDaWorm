@@ -1,0 +1,5 @@
+#foreach($e in $errors)
+  <li><a href="/error/$e.getId()">$e.getName()</a></li>
+#end
+
+<a href="/error_form">Add Error</a>

@@ -14,17 +14,36 @@ public class App {
     String layout = "templates/layout.vtl";
 
     get("/", (request, response) -> {
-       Map<String, Object> model = new HashMap<String, Object>();
-       
-       model.put("template", "templates/index.vtl");
-       return new ModelAndView(model, layout);
-     }, new VelocityTemplateEngine());
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    },new VelocityTemplateEngine());
+
+    get("/admin_home", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/admin_home.vtl");
+      model.put("errors", Error.allErrors());
+      return new ModelAndView(model, layout);
+    },new VelocityTemplateEngine());
+
+    get("/error_form", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/error_form.vtl");
+      return new ModelAndView(model, layout);
+    },new VelocityTemplateEngine());
+
+    post("/admin_errors", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String name = request.queryParams("name");
+      String type = request.queryParams("type");
+      String tags = request.queryParams("tags");
+      Error newError = new Error(name, type, tags);
+      newError.save();
+      model.put("newError", newError);
+      response.redirect("/admin_home");
+      return null;
+    });
+
+
   }
 }
-
-
-
-// model.put("template", "templates/index.vtl");
-// = new Review;
-//  newReview.saveReviewToRestaurant(":id")
-//  model.put(":id", request.params(:id))

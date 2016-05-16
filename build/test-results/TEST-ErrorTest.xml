@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ErrorTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2016-05-16T18:22:21" hostname="epicodus-42.local" time="0.268">
+<testsuite name="ErrorTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2016-05-16T20:02:10" hostname="epicodus-42.local" time="0.302">
   <properties/>
-  <testcase name="find_findErrorInDatabase_true" classname="ErrorTest" time="0.172"/>
-  <testcase name="methods_getsAllInfo_true" classname="ErrorTest" time="0.006"/>
-  <testcase name="delete_reviewDeletedFromAllTables_true" classname="ErrorTest" time="0.033"/>
-  <testcase name="addSolution_solutionAddedToError_true" classname="ErrorTest" time="0.03"/>
-  <testcase name="save_savesIntoDatabaseAndCreatesId_true" classname="ErrorTest" time="0.022"/>
+  <testcase name="find_findErrorInDatabase_true" classname="ErrorTest" time="0.209"/>
+  <testcase name="methods_getsAllInfo_true" classname="ErrorTest" time="0.005"/>
+  <testcase name="delete_reviewDeletedFromAllTables_true" classname="ErrorTest" time="0.032"/>
+  <testcase name="addSolution_solutionAddedToError_true" classname="ErrorTest" time="0.029"/>
+  <testcase name="save_savesIntoDatabaseAndCreatesId_true" classname="ErrorTest" time="0.02"/>
   <testcase name="Error_instantiatesCorrectly_true" classname="ErrorTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
