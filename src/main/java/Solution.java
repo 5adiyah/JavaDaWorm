@@ -9,8 +9,7 @@ public class Solution {
   private String description;
   private String tag;
 
-  public Solution (int id, String name, String description, String tag) {
-    this.id = id;
+  public Solution (String name, String description, String tag) {
     this.name = name;
     this.description = description;
     this.tag = tag;
@@ -62,10 +61,11 @@ public class Solution {
 
   public void update(String newName, String newDescription, String newTag) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE solutions SET newName = :newName, newDescription = :newDescription, newTag = :newTag WHERE id = :id";
+      String sql = "UPDATE solutions SET name = :name, description = :description, tag = :tag WHERE id = :id";
       con.createQuery(sql)
-        .addParameter("newName", newName)
-        .addParameter("newDescription", newDescription)
+        .addParameter("name", newName)
+        .addParameter("description", newDescription)
+        .addParameter("tag", newTag)
         .addParameter("id", this.id)
         .executeUpdate();
     }
@@ -86,22 +86,12 @@ public class Solution {
 
 public static Solution find(int id) {
       try(Connection con = DB.sql2o.open()) {
-        String sql = "SELECT * FROM bands WHERE id = :id";
+        String sql = "SELECT * FROM solutions WHERE id = :id";
         Solution solution = con.createQuery(sql)
           .addParameter("id", id)
           .executeAndFetchFirst(Solution.class);
         return solution;
       }
-}
-
-public static Error findType(String type) {
-  try (Connection con = DB.sql2o.open()) {
-    String sql = "SELECT * FROM errors WHERE type = :type";
-    Error error = con.createQuery(sql)
-      .addParameter("type", type)
-      .executeAndFetchFirst(Error.class);
-      return error;
-  }
 }
 
 public void addError(Error error) {
@@ -120,14 +110,14 @@ public List<Error> getErrors() {
       .addParameter("solution_id", this.getId())
       .executeAndFetch(Integer.class);
 
-    List<Error> errors = new ArrayList<Venue>();
+    List<Error> errors = new ArrayList<Error>();
 
     for(Integer errorId : errorIds) {
       String errorQuery = "SELECT * FROM errors WHERE id = :errorId";
       Error error = con.createQuery(errorQuery)
         .addParameter("errorId", errorId)
         .executeAndFetchFirst(Error.class);
-      errors.addError(error);
+      errors.add(error);
     }
     return errors;
   }
