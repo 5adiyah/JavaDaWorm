@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 48cc60fdd18afc203166324b0388083b3a27ba07
 import org.junit.rules.ExternalResource;
 import org.sql2o.*;
 
@@ -14,11 +18,17 @@ public class DatabaseRule extends ExternalResource {
       String deleteErrorsQuery = "DELETE FROM errors *;";
       String deleteSolutionsQuery = "DELETE FROM solutions *;";
       String deleteErrorsSolutionsQuery = "DELETE FROM errors_solutions *;";
+<<<<<<< HEAD
 
       con.createQuery(deleteErrorsQuery).executeUpdate();
       con.createQuery(deleteSolutionsQuery).executeUpdate();
       con.createQuery(deleteErrorsSolutionsQuery).executeUpdate();
 
+=======
+      con.createQuery(deleteErrorsQuery).executeUpdate();
+      con.createQuery(deleteSolutionsQuery).executeUpdate();
+      con.createQuery(deleteErrorsSolutionsQuery).executeUpdate();
+>>>>>>> 48cc60fdd18afc203166324b0388083b3a27ba07
     }
   }
 }

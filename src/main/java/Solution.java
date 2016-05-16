@@ -11,7 +11,17 @@ public class Solution {
 
 
   public Solution (String name, String description, String tag) {
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+  public Solution (String name, String description, String tag) {
+=======
+  public Solution (int id, String name, String description, String tag) {
+>>>>>>> 8a2e8ddf2adbf823d9dc9fe967e1a91ec37f1426
+>>>>>>> 48cc60fdd18afc203166324b0388083b3a27ba07
     this.id = id;
+>>>>>>> 0b02343b829f31daca5f4c987bcc37f1c7a18f53
     this.name = name;
     this.description = description;
     this.tag = tag;
@@ -63,10 +73,11 @@ public class Solution {
 
   public void update(String newName, String newDescription, String newTag) {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE solutions SET newName = :newName, newDescription = :newDescription, newTag = :newTag WHERE id = :id";
+      String sql = "UPDATE solutions SET name = :name, description = :description, tag = :tag WHERE id = :id";
       con.createQuery(sql)
-        .addParameter("newName", newName)
-        .addParameter("newDescription", newDescription)
+        .addParameter("name", newName)
+        .addParameter("description", newDescription)
+        .addParameter("tag", newTag)
         .addParameter("id", this.id)
         .executeUpdate();
     }
@@ -87,22 +98,12 @@ public class Solution {
 
 public static Solution find(int id) {
       try(Connection con = DB.sql2o.open()) {
-        String sql = "SELECT * FROM bands WHERE id = :id";
+        String sql = "SELECT * FROM solutions WHERE id = :id";
         Solution solution = con.createQuery(sql)
           .addParameter("id", id)
           .executeAndFetchFirst(Solution.class);
         return solution;
       }
-}
-
-public static Error findType(String type) {
-  try (Connection con = DB.sql2o.open()) {
-    String sql = "SELECT * FROM errors WHERE type = :type";
-    Error error = con.createQuery(sql)
-      .addParameter("type", type)
-      .executeAndFetchFirst(Error.class);
-      return error;
-  }
 }
 
 public void addError(Error error) {
