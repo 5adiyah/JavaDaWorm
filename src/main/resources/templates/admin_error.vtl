@@ -1,0 +1,11 @@
+$error.getName()
+$error.getDescription()
+$error.getType()
+
+#if($errors.getSolutions())
+  Solutions for this Error:
+  #foreach($solution in $errors.getSolutions())
+    <ul>
+    </li><a href = "/admin/$error.getId()/solution/$solution.getId()">$solution.getName()</a></li>
+  #end
+#end
