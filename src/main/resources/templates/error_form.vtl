@@ -1,23 +1,27 @@
-<div class="container parent">
-  <div class = "child">
-    <h1 id = "padding">ADD ERROR</h1>
-    <form action="/admin/errors" method="post">
-      <label for="name">Name</label>
-      <input type="text" name="name" id = "name"></input>
-      <label for = "type">Type of Error:</label>
-      <select name="types" id = "types">
-        <option value="pre">Pre Error</option>
-        <option value="post">Post Error</option>
-      </select>
-      <label for = "tags">Tag:</label>
-      <select name="tags" id = "tags">
-        <option value="typos">typos</option>
-        <option value="semi-colon">semi-colons</option>
-        <option value="instantiation">Instantiation</option>
-        <option value="null-pointer">Null-Pointer</option>
-        <option value="stale-element">Stale Element Exception</option>
-      </select>
-      <input class="button-primary" type="submit" value="Submit"></input>
-    </form>
+<div class = "terminal">
+  <div class="container parent">
+    <div class = "child">
+      <h1 id = "padding">ADD ERROR</h1>
+      <form action="/admin/errors" method="post">
+        <label for="name">Name<img src = "/cursor.gif"></label>
+        <input type="text" name="name" id = "name"></input>
+        <label for = "type">Type of Error</label>
+        <select name="types" id = "types">
+          <option value="pre">Pre Error</option>
+          <option value="post">Post Error</option>
+        </select>
+        <img src = "/cursor.gif">
+        <label for = "tags">Tag</label>
+        <select name="tags" id = "tags">
+          <option value="typos">typos</option>
+          <option value="semi-colon">semi-colons</option>
+          <option value="instantiation">Instantiation</option>
+          <option value="null-pointer">Null-Pointer</option>
+          <option value="stale-element">Stale Element Exception</option>
+        </select>
+        <img src = "/cursor.gif">
+        <input class="btn homebrew-medium" type="submit" value="Submit"></input>
+      </form>
+    </div>
   </div>
 </div>

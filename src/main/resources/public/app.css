@@ -1,6 +1,9 @@
 body {
-  font-family: Consolas, monaco, monospace;;
+  font-family: Consolas, monaco, monospace;
   background-color: black;
+}
+
+.terminal {
   color: rgb(70, 252, 62);
   margin:25px;
   padding:25px;
@@ -10,9 +13,14 @@ body {
 
 p, a, label, select {
   font-size: 20px;
-  color: white;
+  color: #00ff00;
   text-decoration: none;
   color: rgb(70, 252, 62);
+}
+
+span {
+  font-size: 20px;
+  color:white;
 }
 
 a:hover {
@@ -63,11 +71,66 @@ input, select {
   font-size:12px;
   height:30px;
   width:100px;
-  margin: 30px;
+  margin: 20px;
+}
+
+.homebrew-medium {
+  background-color:black;
+  color: #00ff00;
+  border-width:2px;
+  border-color:#00ff00;
+  font-size:12px;
+  height:40px;
+  width:75px;
+  margin: 20px;
+}
+
+select option {
+  background-color:black;
+  color: #00ff00;
+  font-family: Consolas, monaco, monospace;
 }
 
 .bottom-right {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.cursor {
+  height: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input, select {
+  border-color: black;
+}
+
+
+.round-button {
+    display:block;
+    width:200px;
+    height:200px;
+    line-height:200px;
+    border: 2px solid #00ff00;
+    border-radius: 50%;
+    color:#00ff00;
+    text-align:center;
+    text-decoration:none;
+    background: black;
+    box-shadow: 0 0 3px gray;
+    font-size:20px;
+    font-weight:bold;
+}
+.round-button:hover {
+    background: #262626;
+}
+
+.center {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }

@@ -67,6 +67,27 @@ public class AppTest extends FluentTest {
     click("a", withText("Post Testing"));
     assertThat(pageSource()).contains("Null Pointer Error");
   }
+
   @Test
-  public void 
+  public void solutionAddedToError() {
+    Error testError = new Error("Null Pointer Error", "post", "semi-colons");
+    testError.save();
+    String url = String.format("http://localhost:4567/admin/errors/%d", testError.getId());
+    goTo(url);
+    fill("#name").with("semicolon");
+    fill("#description").with("you numbnuts");
+    fillSelect("#tags").withText("semi-colons");
+    submit("btn");
+    assertThat(pageSource()).contains("semicolon");
+  }
+  // @Test
+  // public void postErrorShowsThatErrorsSolutions() {
+  //   Error testError = new Error("Null Pointer Error", "post", "semi-colons");
+  //   testError.save();
+  //   Solution testSolution = new Solution("semicolon", "you numbnuts", "semi-colon");
+  //   testSolution.save();
+  //   String url = String.format("http://localhost:4567/post_error/%d", testError.getId());
+  //   goTo(url);
+  //   assertThat(pageSource()).contains("you numbnuts");
+  // }
 }

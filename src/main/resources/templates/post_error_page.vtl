@@ -1,14 +1,11 @@
-<h3>$error.getName()</h3>
-
-
-
-  #if($error.getSolutions())
-    Solutions:
-    #foreach($solution in $error.getSolutions())
-      <h3>$solution.getName()</h3>
-      <p>$solution.getDescription()</p>
-      <p>Tags: $solution.getTag()</p>
+  <h1 id = "large"><strong>$error.getName()</strong></h1>
+    #if($error.getSolutions())
+      #foreach($solution in $error.getSolutions())
+        <h3>$solution.getName()</h3>
+        <p>$solution.getDescription()</p>
+        <p>Tags: $solution.getTag()</p>
+      #end
+      #else
+        whoops.
     #end
-    #else
-      whoops.
-    #end
+    <button class = "round-button center">Get a Solution</button>

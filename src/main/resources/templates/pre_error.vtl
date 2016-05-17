@@ -1,9 +1,10 @@
-<h3>Pre Testing Errors</h3>
-
-#foreach($error in $errors)
-  #if($error.getType() == "pre")
-    <h3><a href="/pre_error/$error.getId()" method="post">$error.getName()</a></h3>
-    <p>$error.getTag()</p>
+<div class = "terminal">
+  <h3>Pre Testing Errors</h3>
+  #foreach($error in $errors)
+    #if($error.getType() == "pre")
+      <ul>
+        <li><a href="/pre_error/$error.getId()">$error.getName()</a><img src = "cursor.gif"> <span>$error.getTag()</span></li>
+      </ul>
+    #end
   #end
-
-#end
+</div>

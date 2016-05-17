@@ -1,27 +1,34 @@
-<h1>$error.getName()</h1>
-<h3>$error.getType()</h3>
-<h3>$error.getTag()</h3>
+<div class = "terminal">
+  <h1>$error.getName()</h1>
+  <h3>$error.getType()</h3>
+  <h3>$error.getTag()</h3>
 
-
-#if($error.getSolutions())
-  Solutions for this Error:
-  #foreach($solution in $error.getSolutions())
-    <ul>
-    </li><a href = "/admin/$error.getId()/solution/$solution.getId()">$solution.getName()</a></li>
+  #if($error.getSolutions())
+    Solutions for this Error:
+    #foreach($solution in $error.getSolutions())
+      <ul>
+        <li><a href = "/admin/$error.getId()/solution/$solution.getId()">$solution.getName()</a></li>
+      </ul>
+    #end
   #end
-#end
 
-<form class="form-group" action="/admin/errors/$error.getId()" method="post">
-  Name: <input type="text" name="name">
-  Description: <input type="text" name="description">
-  <input type="hidden" name="eId" value="$error.getId()">
-  <label for="tags">Tag:</label>
-  <select name="tags" id="tags" type="text">
-    <option value="pre">typos</option>
-    <option value="post">semi-colons</option>
-    <option value="post">Instantiation</option>
-    <option value="post">Null-Pointer</option>
-    <option value="post">Stale Element Exception</option>
-  </select>
-  <input type="submit" value="Submit">
-</form>
+  <form class="form-group" action="/admin/errors/$error.getId()" method="post">
+    <input type="hidden" name="eId" value="$error.getId()">
+
+    <label for = name>Name:</label>
+    <input type="text" name = "name" id = "name"></input>
+
+    <label for = "description">Description:</label>
+    <input type = "text" name = "description" id = "description"></input>
+
+    <label for = "tags">Tag:</label>
+    <select name = "tags" id = "tags" type="text">
+      <option value = "pre">typos</option>
+      <option value = "post">semi-colons</option>
+      <option value = "post">Instantiation</option>
+      <option value = "post">Null-Pointer</option>
+      <option value = "post">Stale Element Exception</option>
+    </select>
+    <input type = "submit" value="submit">
+  </form>
+</div>

@@ -1,5 +1,7 @@
-#foreach($error in $errors)
-  <li><a href="/admin/errors/$error.getId()">$error.getName()</a></li>
-#end
+<div class = "terminal">
+  #foreach($error in $errors)
+    <li><a href="/admin/errors/$error.getId()">$error.getName()</a></li>
+  #end
 
-<a href="admin/errors">Add Error</a>
+  <a href="admin/errors">Add Error</a><img src = "cursor.gif" class = "cursor">
+</div>
