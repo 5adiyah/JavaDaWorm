@@ -74,7 +74,7 @@ public class App {
       Error newError = Error.find(errorId);
       String name = request.queryParams("name");
       String description = request.queryParams("description");
-      String tag = request.queryParams("tag");
+      String tag = request.queryParams("tags");
       Solution thisSolution = new Solution(name, description, tag);
       thisSolution.save();
       newError.addSolutions(thisSolution);
@@ -93,7 +93,23 @@ public class App {
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
+    get("/pre_error/:id", (request,response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      Error thisError = Error.find(Integer.parseInt(request.params(":id")));
+      model.put("error", thisError);
+      model.put("allSolutions", Solution.all());
+      model.put("template", "templates/pre_error_page.vtl");
+      return new ModelAndView(model,layout);
+    }, new VelocityTemplateEngine());
 
+    get("/post_error/:id", (request,response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      Error thisError = Error.find(Integer.parseInt(request.params(":id")));
+      model.put("error", thisError);
+      model.put("allSolutions", Solution.all());
+      model.put("template", "templates/post_error_page.vtl");
+      return new ModelAndView(model,layoutPost);
+    }, new VelocityTemplateEngine());
 
 
   }
