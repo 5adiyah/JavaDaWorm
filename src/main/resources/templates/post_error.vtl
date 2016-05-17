@@ -1,6 +1,7 @@
+<h3>Post Testing Errors</h3>
 #foreach($error in $errors)
   #if($error.getType() == "post")
-    <h3>$error.getName()</h3>
+    <h3><a href="/post_error/$error.getId()" method="post">$error.getName()</a></h3>
     <p>$error.getTag()</p>
   #end
 
