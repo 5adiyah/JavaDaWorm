@@ -3,7 +3,7 @@ body {
   background-color: black;
 }
 
-p, a, label{
+p, a, label, select {
   font-size: 20px;
   color: white;
   text-decoration: none;
@@ -18,7 +18,20 @@ h1, h2, h3, h4 {
   color: white;
 }
 
-input, select, .white {
+input, select {
   background-color:black;
   color:white;
+}
+
+.parent {
+  padding: 5% 0;
+  text-align: center;
+}
+
+.child {
+  padding: 10% 0;
+}
+
+#padding {
+  padding: 20px;
 }
