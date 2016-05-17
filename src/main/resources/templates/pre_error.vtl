@@ -1,6 +1,6 @@
 #foreach($error in $errors)
   #if($error.getType() == "pre")
-    <h3>$error.getName()</h3>
+    <h3><a href="/pre_error/$error.getId()" method="post">$error.getName()</a></h3>
     <p>$error.getTag()</p>
   #end
 

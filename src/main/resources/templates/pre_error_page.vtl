@@ -1,0 +1,14 @@
+<h3>$error.getName()</h3>
+
+
+
+  #if($error.getSolutions())
+    Solutions:
+    #foreach($solution in $error.getSolutions())
+      <h3>$solution.getName()</h3>
+      <p>$solution.getDescription()</p>
+      <p>$solution.getTag()</p>
+    #end
+    #else
+      whoops.
+    #end
