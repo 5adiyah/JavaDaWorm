@@ -12,6 +12,7 @@ p, a, label, select {
 a:hover {
   font-style: italic;
   color: white;
+  text-decoration: none;
 }
 
 h1, h2, h3, h4 {
@@ -34,4 +35,33 @@ input, select {
 
 #padding {
   padding: 20px;
+}
+
+
+
+.homebrew {
+  background-color:black;
+  color: #00ff00;
+  border-width:2px;
+  border-color:#00ff00;
+  height: 100px;
+  width:300px;
+  margin: 10px;
+}
+
+.homebrew-small {
+  background-color:black;
+  color: #00ff00;
+  border-width:2px;
+  border-color:#00ff00;
+  font-size:12px;
+  height:30px;
+  width:100px;
+  margin: 30px;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

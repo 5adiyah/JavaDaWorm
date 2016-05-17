@@ -3,14 +3,14 @@
     <h1 id = "padding">ADD ERROR</h1>
     <form action="/admin/errors" method="post">
       <label for="name">Name</label>
-      <input type="text" name="name"></input>
+      <input type="text" name="name" id = "name"></input>
       <label for = "type">Type of Error:</label>
-      <select name="types">
+      <select name="types" id = "types">
         <option value="pre">Pre Error</option>
         <option value="post">Post Error</option>
       </select>
       <label for = "tags">Tag:</label>
-      <select name="tags">
+      <select name="tags" id = "tags">
         <option value="typos">typos</option>
         <option value="semi-colon">semi-colons</option>
         <option value="instantiation">Instantiation</option>
