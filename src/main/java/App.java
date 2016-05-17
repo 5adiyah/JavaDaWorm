@@ -12,6 +12,7 @@ public class App {
   public static void main(String[] args) {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
+    String layoutPost = "templates/layout_post.vtl";
 
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -30,7 +31,7 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/post_error.vtl");
       model.put("errors", Error.allErrors());
-      return new ModelAndView(model, layout);
+      return new ModelAndView(model, layoutPost);
     },new VelocityTemplateEngine());
 
     get("/admin", (request, response) -> {

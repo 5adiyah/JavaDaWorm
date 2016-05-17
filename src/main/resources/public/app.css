@@ -1,0 +1,24 @@
+body {
+  font-family: Consolas, monaco, monospace;;
+  background-color: black;
+}
+
+p, a, label{
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  font-style: italic;
+  color: white;
+}
+
+h1, h2, h3, h4 {
+  color: white;
+}
+
+input, select, .white {
+  background-color:black;
+  color:white;
+}

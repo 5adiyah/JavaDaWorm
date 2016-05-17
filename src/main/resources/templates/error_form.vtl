@@ -1,12 +1,14 @@
 <div class="container">
   <h3>Add Error</h3>
   <form action="/admin/errors" method="post">
-    <label for="name"></label>
-    <input type="text" name="name">Name</input>
+    <label for="name">Name</label>
+    <input type="text" name="name"></input>
+    <label for = "type">Type of Error:</label>
     <select name="types">
       <option value="pre">Pre Error</option>
       <option value="post">Post Error</option>
     </select>
+    <label for = "tags">Tag:</label>
     <select name="tags">
       <option value="typos">typos</option>
       <option value="semi-colon">semi-colons</option>
