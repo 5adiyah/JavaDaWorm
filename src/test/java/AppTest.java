@@ -67,6 +67,4 @@ public class AppTest extends FluentTest {
     click("a", withText("Post Testing"));
     assertThat(pageSource()).contains("Null Pointer Error");
   }
-  @Test
-  public void 
 }
