@@ -51,8 +51,6 @@ input, select {
   padding: 20px;
 }
 
-
-
 .homebrew {
   background-color:black;
   color: #00ff00;
@@ -77,11 +75,11 @@ input, select {
 .homebrew-medium {
   background-color:black;
   color: #00ff00;
+  text: #00ff00;
   border-width:2px;
   border-color:#00ff00;
-  font-size:12px;
+  font-size:18px;
   height:40px;
-  width:75px;
   margin: 20px;
 }
 
@@ -130,6 +128,8 @@ input, select {
 }
 
 .center {
+  align-items: center;
+  text-align:center;
   display: block;
   margin-right: auto;
   margin-left: auto;

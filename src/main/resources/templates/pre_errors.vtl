@@ -1,0 +1,10 @@
+<div class = "terminal">
+  <h3>Pre Testing Errors</h3>
+  #foreach($error in $errors)
+    #if($error.getType() == "pre")
+      <ul>
+        <li><a href="/pre/errors/$error.getId()">$error.getName()</a><img src = "/cursor.gif"> <span>$error.getTag()</span></li>
+      </ul>
+    #end
+  #end
+</div>

@@ -7,7 +7,7 @@
     Solutions for this Error:
     #foreach($solution in $error.getSolutions())
       <ul>
-        <li><a href = "/admin/$error.getId()/solution/$solution.getId()">$solution.getName()</a></li>
+        <li><a href = "/admin/$error.getId()/solutions/$solution.getId()">$solution.getName()</a></li>
       </ul>
     #end
   #end
@@ -15,20 +15,20 @@
   <form class="form-group" action="/admin/errors/$error.getId()" method="post">
     <input type="hidden" name="eId" value="$error.getId()">
 
-    <label for = name>Name:</label>
+    <label for = name>Name</label><img src = "/cursor.gif">
     <input type="text" name = "name" id = "name"></input>
 
-    <label for = "description">Description:</label>
+    <label for = "description">Description</label><img src = "/cursor.gif">
     <input type = "text" name = "description" id = "description"></input>
 
-    <label for = "tags">Tag:</label>
+    <label for = "tags">Tag</label>
     <select name = "tags" id = "tags" type="text">
       <option value = "pre">typos</option>
       <option value = "post">semi-colons</option>
       <option value = "post">Instantiation</option>
       <option value = "post">Null-Pointer</option>
       <option value = "post">Stale Element Exception</option>
-    </select>
-    <input type = "submit" value="submit">
+    </select><img src = "/cursor.gif">
+    <button type = "submit" class = "btn homebrew-medium">Add Solution</button>
   </form>
 </div>

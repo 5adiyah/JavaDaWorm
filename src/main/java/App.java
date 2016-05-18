@@ -20,16 +20,16 @@ public class App {
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
 
-    get("/pre_error", (request, response) -> {
+    get("/pre/errors", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put("template", "templates/pre_error.vtl");
+      model.put("template", "templates/pre_errors.vtl");
       model.put("errors", Error.allErrors());
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
 
-    get("/post_error", (request, response) -> {
+    get("/post/errors", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put("template", "templates/post_error.vtl");
+      model.put("template", "templates/post_errors.vtl");
       model.put("errors", Error.allErrors());
       return new ModelAndView(model, layoutPost);
     },new VelocityTemplateEngine());
@@ -37,13 +37,13 @@ public class App {
     get("/admin", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("errors", Error.allErrors());
-      model.put("template", "templates/admin_home.vtl");
+      model.put("template", "templates/admin.vtl");
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
 
-    get("/admin/errors", (request, response) -> {
+    get("/admin/errors/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      model.put("template", "templates/error_form.vtl");
+      model.put("template", "templates/admin_error_form.vtl");
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
 
@@ -64,7 +64,7 @@ public class App {
       Map<String,Object> model = new HashMap<String,Object>();
       Error newError = Error.find(Integer.parseInt(request.params(":id")));
       model.put("error", newError);
-      model.put("template", "templates/admin_error.vtl");
+      model.put("template", "templates/admin_error_solution_form.vtl");
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
@@ -83,7 +83,7 @@ public class App {
       return null;
     });
 
-    get("/admin/:id/solution/:sId", (request,response) -> {
+    get("/admin/:id/solutions/:sId", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
       Solution thisSolution = Solution.find(Integer.parseInt(request.params("sId")));
@@ -93,24 +93,22 @@ public class App {
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
-    get("/pre_error/:id", (request,response) -> {
+    get("/pre/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
       model.put("error", thisError);
       model.put("allSolutions", Solution.all());
-      model.put("template", "templates/pre_error_page.vtl");
+      model.put("template", "templates/pre_error.vtl");
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
-    get("/post_error/:id", (request,response) -> {
+    get("/post/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
       model.put("error", thisError);
       model.put("allSolutions", Solution.all());
-      model.put("template", "templates/post_error_page.vtl");
+      model.put("template", "templates/post_error.vtl");
       return new ModelAndView(model,layoutPost);
     }, new VelocityTemplateEngine());
-
-
   }
 }
