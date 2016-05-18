@@ -1,38 +1,14 @@
-<!DOCTYPE VTL PUBLIC "-//W3C//DTD VTL 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
-
-<script language="JavaScript" src="/gen_validatorv31.js" type="text/javascript"></script>
-
 <div class = "terminal">
   <div class = "container">
     <div class = "child">
-      <form action="/contact-form-handler.php" method = "POST" enctype = "text/plain">
-        <label for = "name">Your Name</label><img src = "/cursor.gif">
-        <input type = "text" name = "name" id = "name" required></input>
+      <form action="/email/submit" method="post">
+        <label for = "description">Description of Your Error</label><img src = "/cursor.gif"><br>
+        <textarea type = "message" name="error" id = "description" required></textarea><br>
 
-        <br>
-        <label for = "email">Your Email Address</label><img src = "/cursor.gif">
-        <input type = "text" name = "email" id = "email" required></input>
-
-        <br>
-        <label for = "description">Description of Your Error</label><img src = "/cursor.gif">
-        <br>
-        <textarea type = "message" name = "description" id = "description" required></textarea>
-
-        <br>
-        <label for = "solution">Have You Found a Solution?</label><img src = "/cursor.gif">
-        <br>
-        <textarea type = "message" name = "solution" id = "solution" required></textarea>
-        <script language="JavaScript">
-          // Code for validating the form
-          // Visit http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
-          // for details
-          var frmvalidator  = new Validator("contactform");
-          frmvalidator.addValidation("name","req","Please provide your name");
-          frmvalidator.addValidation("email","req","Please provide your email");
-          frmvalidator.addValidation("email","email","Please enter a valid email address");
-        </script>
+        <label for = "solution">Have You Found a Solution?</label><img src = "/cursor.gif"><br>
+        <textarea type = "message" name="solution" id = "solution" required></textarea><br>
+        <button type = "submit" class = "btn homebrew-medium">Email Us</button>
       </form>
-      <button type = "submit" class = "btn homebrew-medium"><a href = "/email/thanks">Email Us</a></button>
     </div>
   </div>
 </div>

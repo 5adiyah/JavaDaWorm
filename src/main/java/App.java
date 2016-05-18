@@ -54,9 +54,10 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/email/thanks", (request, response) -> {
+    post("/email/submit", (request, response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
-      model.put("template", "templates/email_thanks.vtl");
+      model.put("template", "templates/email_success.vtl");
+      return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
     get("/admin/errors/new", (request, response) -> {
