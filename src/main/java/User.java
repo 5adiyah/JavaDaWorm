@@ -23,7 +23,7 @@ public class User {
   }
 
   public static List<User> all() {
-    String sql = "SELECT id, error, solution FROM userinputs";
+    String sql = "SELECT * FROM userinputs";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(User.class);
     }
@@ -50,12 +50,12 @@ public class User {
     }
   }
 
-  public void delete() {
+  public static boolean delete() {
     try (Connection con = DB.sql2o.open()) {
-      String deletequery = "DELETE FROM userinputs WHERE :id > 0";
+      String deletequery = "DELETE FROM userinputs";
       con.createQuery(deletequery)
-        .addParameter("id", this.id)
         .executeUpdate();
     }
+    return true;
   }
 }

@@ -30,24 +30,23 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Admin");
   }
 
-  // @Test
-  // public void adminFormTest() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText ("Admin"));
-  //   assertThat(pageSource()).contains("Add Error");
-  // }
+  @Test
+  public void adminLinkCorrect() {
+    goTo("http://localhost:4567/");
+    click("a", withText ("Admin"));
+    assertThat(pageSource()).contains("Admin Login Page");
+  }
 
-  // @Test
-  // public void errorIsCreated() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText ("Admin"));
-  //   click("a", withText ("Add Error"));
-  //   fill("#name").with("500 Error");
-  //   fillSelect("#types").withText("Post Error");
-  //   fillSelect("#tags").withText("typos");
-  //   submit("btn");
-  //   assertThat(pageSource()).contains("500 Error");
-  // }
+  @Test
+  public void errorIsCreated() {
+    goTo("http://localhost:4567/admin");
+    click("a", withText ("Add Error"));
+    fill("#name").with("500 Error");
+    fillSelect("#types").withText("Post Error");
+    fillSelect("#tags").withText("typos");
+    submit("btn");
+    assertThat(pageSource()).contains("500 Error");
+  }
 
   @Test
   public void preErrorShowsOnPreErrorPage() {
@@ -80,14 +79,33 @@ public class AppTest extends FluentTest {
     submit("btn");
     assertThat(pageSource()).contains("semicolon");
   }
+  @Test
+  public void postErrorShowsThatErrorsSolutions() {
+    Error testError = new Error("Null Pointer Error", "post", "semi-colons");
+    testError.save();
+    String url = String.format("http://localhost:4567/admin/errors/%d", testError.getId());
+    goTo(url);
+    fill("#name").with("Null Pointer Error");
+    fill("#description").with("you numbnuts");
+    fillSelect("#tags").withText("typos");
+    submit(".add");
+    assertThat(pageSource()).contains("you numbnuts");
+  }
+  @Test
+  public void userAddsError() {
+    User newUser = new User("500 error", "I dunno");
+    newUser.save();
+    String url = String.format("http://localhost:4567/admin/users/inputs");
+    goTo(url);
+    assertThat(pageSource()).contains("500 error");
+  }
   // @Test
-  // public void postErrorShowsThatErrorsSolutions() {
-  //   Error testError = new Error("Null Pointer Error", "post", "semi-colons");
-  //   testError.save();
-  //   Solution testSolution = new Solution("semicolon", "you numbnuts", "semi-colon");
-  //   testSolution.save();
-  //   String url = String.format("http://localhost:4567/post_error/%d", testError.getId());
+  // public void userInputsDeleted() {
+  //   User newUser = new User("500 error", "dunno");
+  //   newUser.save();
+  //   String url = String.format("http://localhost:4567/admin/user_errors");
   //   goTo(url);
-  //   assertThat(pageSource()).contains("you numbnuts");
+  //   click("a", withText("**DELETE ALL**"));
+  //   assertThat(pageSource()).contains("Add Error");
   // }
 }

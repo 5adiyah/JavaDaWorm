@@ -48,15 +48,35 @@ public class App {
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
 
-    get("/email/admin", (request, response) -> {
+    get("/admin/users/inputs", (request, response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
-      model.put("template", "templates/email_admin.vtl");
+      model.put("template", "templates/user_errors.vtl");
+      model.put("users", User.all());
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/email/submit", (request, response) -> {
+    get("/admin/users/delete", (request, response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
-      model.put("template", "templates/email_success.vtl");
+      User.delete();
+      response.redirect("/admin");
+      return null;
+    });
+
+    get("/user/submit", (request, response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      model.put("template", "templates/user_form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/user/submit", (request, response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      String error = request.queryParams("error");
+      String solution = request.queryParams("solution");
+      User newUser = new User(error, solution);
+      newUser.save();
+      model.put("user", newUser);
+      model.put("users", User.all());
+      model.put("template", "templates/user_success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

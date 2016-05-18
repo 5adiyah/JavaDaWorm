@@ -1,0 +1,9 @@
+<div class = "terminal">
+  <h1>User Errors To Be Approved</h1>
+  #foreach($user in $users)
+    <h2>Error:$user.getError()</h2>
+    <h3>$user.getSolution()</h3>
+  #end
+
+  <a href = "/admin/users/delete"><button class ="btn homebrew-medium">**DELETE ALL**</button></a>
+</div>

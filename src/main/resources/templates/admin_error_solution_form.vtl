@@ -8,6 +8,8 @@
     #foreach($solution in $error.getSolutions())
       <ul>
         <li><a href = "/admin/$error.getId()/solutions/$solution.getId()">$solution.getName()</a></li>
+        $solution.getDescription()
+        $solution.getTag()
       </ul>
     #end
   #end
@@ -29,7 +31,7 @@
       <option value = "post">Null-Pointer</option>
       <option value = "post">Stale Element Exception</option>
     </select><img src = "/cursor.gif">
-    <button type = "submit" class = "btn homebrew-medium">Add Solution</button>
+    <button type = "submit" id = "add" class = "btn homebrew-medium">Add Solution</button>
   </form>
 
   <div class = "bottom-left">
