@@ -22,6 +22,7 @@
 //     return solution;
 //   }
 
+<<<<<<< HEAD
 //   public List<User> all() {
 //     String sql = "SELECT id, error, solution FROM userinputs";
 //     try(Connection con = DB.sql2o.open()) {
@@ -59,3 +60,42 @@
 //     }
 //   }
 // }
+=======
+  public static List<User> all() {
+    String sql = "SELECT id, error, solution FROM userinputs";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(User.class);
+    }
+  }
+  @Override public boolean equals (Object otherUser) {
+    if(!(otherUser instanceof User)) {
+      return false;
+    } else  {
+      User newUser = (User)otherUser;
+        return this.getError().equals(newUser.getError()) &&
+               this.getSolution().equals(newUser.getSolution()) &&
+               this.getId() == (newUser.getId());
+      }
+  }
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO userinputs(error, solution) VALUES(:error, :solution)";
+      this.id = (int) con.createQuery(sql, true)
+        .addParameter("error", this.error)
+        .addParameter("solution", this.solution)
+        .executeUpdate()
+        .getKey();
+    }
+  }
+
+  public void delete() {
+    try (Connection con = DB.sql2o.open()) {
+      String deletequery = "DELETE FROM userinputs WHERE :id > 0";
+      con.createQuery(deletequery)
+        .addParameter("id", this.id)
+        .executeUpdate();
+    }
+  }
+}
+>>>>>>> dbe5a8946678a96a383dbc6c3d2bf71692a5a3e9
