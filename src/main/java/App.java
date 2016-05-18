@@ -46,7 +46,19 @@ public class App {
       model.put("errors", Error.allErrors());
       model.put("template", "templates/admin.vtl");
       return new ModelAndView(model, layout);
-    },new VelocityTemplateEngine());                                                              
+    },new VelocityTemplateEngine());
+
+    get("/email/admin", (request, response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      model.put("template", "templates/email_admin.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/email/submit", (request, response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      model.put("template", "templates/email_success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
     get("/admin/errors/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -103,11 +115,21 @@ public class App {
     get("/pre/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
-      Integer rand = Error.randomNumber();
+
       Error randomSolution = Error.find(Integer.parseInt(request.params(":id")));
+      Random random = new Random();
+
+      //create a method to retrieve all solutions for one error, then set the size to your max random
+      System.out.println("solution size" + randomSolution.getSolutions().size());
+
+      int x = random.nextInt(randomSolution.getSolutions().size());
+      System.out.println("random no" + x);
+
+
       model.put("error", thisError);
+      model.put("errors", Error.allErrors());
       model.put("allSolutions", Solution.all());
-      model.put("randomSolution", randomSolution.getSolutions().get(rand));
+      model.put("randomSolution", randomSolution.getSolutions().get(x));
       model.put("template", "templates/pre_error.vtl");
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
