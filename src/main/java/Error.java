@@ -137,4 +137,11 @@ public class Error {
   }
 
 
+  public static int randomNumber() {
+
+    Random random = new Random();
+    int x = random.nextInt(Solution.all().size()-1);
+    //x = a random integer ranging from 0 to the size of my returned list, in our case, 4
+    return x;
+  }
 }
