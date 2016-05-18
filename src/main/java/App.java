@@ -112,6 +112,7 @@ public class App {
       Integer rand = Error.randomNumber();
       Error randomSolution = Error.find(Integer.parseInt(request.params(":id")));
       model.put("error", thisError);
+      model.put("errors", Error.allErrors());
       model.put("allSolutions", Solution.all());
       model.put("randomSolution", randomSolution.getSolutions().get(rand));
       model.put("template", "templates/pre_error.vtl");
