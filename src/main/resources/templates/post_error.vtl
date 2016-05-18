@@ -1,8 +1,15 @@
-  <h1 id = "large"><strong>$error.getName()</strong></h1>
-    #if($error.getSolutions())
-      #foreach($solution in $error.getSolutions())
-        <h3 class = "center">$solution.getName()</h3>
-        <h4 class = "center">$solution.getDescription()</h4>
-      #end
-    #end
-    <button class = "round-button center">Get a Solution</button>
+<div class = "terminal">
+  <h3>$error.getName()</h3>
+ 
+ 
+	 #if($errorToBeSolved.getTag().equals("post"))
+	 <h5>$errorToBeSolved.getName()</h5>
+	 <p>$errorToBeSolved.getDescription()</p>
+	 #end
+	 
+
+    <a href="/post/errors/$error.getId()"><button class = "round-button center">Get Another Solution</button></a>
+</div>
+
+
+

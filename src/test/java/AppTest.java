@@ -30,24 +30,24 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Admin");
   }
 
-  @Test
-  public void adminFormTest() {
-    goTo("http://localhost:4567/");
-    click("a", withText ("Admin"));
-    assertThat(pageSource()).contains("Add Error");
-  }
+  // @Test
+  // public void adminFormTest() {
+  //   goTo("http://localhost:4567/");
+  //   click("a", withText ("Admin"));
+  //   assertThat(pageSource()).contains("Add Error");
+  // }
 
-  @Test
-  public void errorIsCreated() {
-    goTo("http://localhost:4567/");
-    click("a", withText ("Admin"));
-    click("a", withText ("Add Error"));
-    fill("#name").with("500 Error");
-    fillSelect("#types").withText("Post Error");
-    fillSelect("#tags").withText("typos");
-    submit("btn");
-    assertThat(pageSource()).contains("500 Error");
-  }
+  // @Test
+  // public void errorIsCreated() {
+  //   goTo("http://localhost:4567/");
+  //   click("a", withText ("Admin"));
+  //   click("a", withText ("Add Error"));
+  //   fill("#name").with("500 Error");
+  //   fillSelect("#types").withText("Post Error");
+  //   fillSelect("#tags").withText("typos");
+  //   submit("btn");
+  //   assertThat(pageSource()).contains("500 Error");
+  // }
 
   @Test
   public void preErrorShowsOnPreErrorPage() {
