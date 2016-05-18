@@ -1,8 +1,9 @@
-
+import java.util.*;
 import java.util.List;
 import org.sql2o.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Error {
   private int id;
@@ -134,4 +135,15 @@ public class Error {
   }
 
 
+  public static int randomNumber() {
+
+    Random random = new Random();
+    int x = random.nextInt(Solution.all().size());
+
+    return x;
+  }
 }
+
+
+
+
