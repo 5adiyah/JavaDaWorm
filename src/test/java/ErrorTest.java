@@ -3,6 +3,7 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.List;
 import java.util.*;
+import java.util.Random;
 
 public class ErrorTest {
 
@@ -64,41 +65,28 @@ public class ErrorTest {
   }
 
 
-
-  // @Test
-  // public void random_assignRandomNumber_True() {
-  //   Solution mySolution2 = new Solution("Solution", "Some text", "A tag");
-  //   mySolution2.save();
-  //   Solution mySolution3 = new Solution("Solution", "Some text", "A tag");
-  //   mySolution3.save();
-  //   Solution mySolution4 = new Solution("Solution", "Some text", "A tag");
-  //   mySolution4.save();
-  //   Solution mySolution5 = new Solution("Solution", "Some text", "A tag");
-  //   mySolution5.save();
-  //   Solution mySolution6 = new Solution("Solution", "Some text", "A tag");
-  //   mySolution6.save();
-  //   Integer number = Error.randomNumber2();
-  //   System.out.println(number);
-  //   assertTrue(number, instanceof Integer);
-  // }
-
   @Test
   public void random_methodGeneratesRandomSolution_true() {
     Error myError = new Error("Error Name", "Error type", "A Tag");
     myError.save();
-    Solution mySolution2 = new Solution("Solution", "Some text", "A tag");
+    Solution mySolution2 = new Solution("Solution JUSTIN", "Some text", "A tag");
     mySolution2.save();
-    Solution mySolution3 = new Solution("Solution", "Some text", "A tag");
+    Solution mySolution3 = new Solution("Solution KENDRA", "Some text", "A tag");
     mySolution3.save();
-    Solution mySolution4 = new Solution("Solution", "Some text", "A tag");
+    Solution mySolution4 = new Solution("Solution MING", "Some text", "A tag");
     mySolution4.save();
-    Solution mySolution5 = new Solution("Solution", "Some text", "A tag");
+    Solution mySolution5 = new Solution("Solution SADIO", "Some text", "A tag");
     mySolution5.save();
-    Solution mySolution6 = new Solution("Solution", "Some text", "A tag");
+    Solution mySolution6 = new Solution("Solution TEST3", "Some text", "A tag");
     mySolution6.save();
-    Integer number = Error.randomNumber2();
-    Solution randomSolution = Error.getRandomSolutions(number);
-    System.out.println(randomSolution);
+    myError.addSolutions(mySolution2);
+    myError.addSolutions(mySolution3);
+    myError.addSolutions(mySolution4);
+    myError.addSolutions(mySolution5);
+    myError.addSolutions(mySolution6);
+    Integer number = Error.randomNumber();
+    myError.getSolutions().get(number);
+    System.out.println(myError.getSolutions().get(number).getName());
   }
 
 }

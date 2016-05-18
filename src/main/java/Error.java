@@ -3,6 +3,7 @@ import java.util.List;
 import org.sql2o.*;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Error {
   private int id;
@@ -133,38 +134,16 @@ public class Error {
     }
   }
 
-  // public static int randomNumber() {
-  //   int min = 1;
-  //   int max = Solution.all().size();
-  //
-  //   Random random = new Random();
-  //
-  //   int x = random.nextInt((max - min) + 1) - min;
-  //
-  //   return x;
-  //
-  // }
 
-  public static int randomNumber2() {
+  public static int randomNumber() {
 
     Random random = new Random();
     int x = random.nextInt(Solution.all().size());
 
     return x;
   }
-
-
-//how to select individual solution_id from errors_solutions use this to find solution
-  public static List<Solution> getRandomSolutions(int random) {
-    try(Connection con = DB.sql2o.open()) {
-      String joinQuery = "SELECT solution_id FROM errors_solutions WHERE error_id = :random";
-      List<Integer> solutionIds = con.createQuery(joinQuery)
-      .addParameter("random", random)
-      .executeAndFetch(Integer.class);
-
-      Solution solution = Solution.find(solutionId);
-
-      return solution;
-    }
-  }
 }
+
+
+
+
