@@ -80,7 +80,6 @@ input, select {
   border-color:#00ff00;
   font-size:18px;
   height:40px;
-  margin: 20px;
 }
 
 select option {
@@ -95,6 +94,12 @@ select option {
   right: 0;
 }
 
+.bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 .cursor {
   height: 20px;
 }
@@ -107,7 +112,12 @@ input, select {
   border-color: black;
 }
 
+textarea {
+  resize: none;
+  background-color: black;
+  color: white;
 
+}
 .round-button {
     display:block;
     width:200px;
