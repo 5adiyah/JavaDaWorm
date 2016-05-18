@@ -2,7 +2,7 @@
   #foreach($error in $errors)
     #if($error.getType() == "post")
       <ul>
-        <li><a href="/post/errors/$error.getId()" method="post">$error.getName()</a></li>
+        <li><a href="/post/errors/$error.getId()">$error.getName()</a></li>
       </ul>
     #end
   #end

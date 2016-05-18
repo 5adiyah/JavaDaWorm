@@ -10,6 +10,12 @@ import java.util.ArrayList;
 
 public class App {
   public static void main(String[] args) {
+    ProcessBuilder process = new ProcessBuilder();
+     Integer port;
+     if (process.environment().get("PORT") != null) {
+         port = Integer.parseInt(process.environment().get("PORT"));}
+     else { port = 4567; }
+    setPort(port);
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
     String layoutPost = "templates/layout_post.vtl";
@@ -135,26 +141,32 @@ public class App {
     get("/pre/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
-
-      Error randomSolution = Error.find(Integer.parseInt(request.params(":id")));
+      Error errorToBeSolved = Error.find(Integer.parseInt(request.params(":id")));
       Random random = new Random();
-
-      //create a method to retrieve all solutions for one error, then set the size to your max random
-      System.out.println("solution size" + randomSolution.getSolutions().size());
-
-      int x = random.nextInt(randomSolution.getSolutions().size());
-      System.out.println("random no" + x);
-
-
+      int x = random.nextInt(errorToBeSolved.getSolutions().size());
       model.put("error", thisError);
       model.put("errors", Error.allErrors());
       model.put("allSolutions", Solution.all());
-      model.put("randomSolution", randomSolution.getSolutions().get(x));
+      model.put("errorToBeSolved", errorToBeSolved.getSolutions().get(x));
       model.put("template", "templates/pre_error.vtl");
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
-    post("/post/errors/:id", (request,response) -> {
+    get("/post/errors/:id", (request,response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      Error thisError = Error.find(Integer.parseInt(request.params(":id")));
+      Error errorToBeSolved = Error.find(Integer.parseInt(request.params(":id")));
+      Random random = new Random();
+      int x = random.nextInt(errorToBeSolved.getSolutions().size());
+      model.put("error", thisError);
+      model.put("errors", Error.allErrors());
+      model.put("allSolutions", Solution.all());
+      model.put("errorToBeSolved", errorToBeSolved.getSolutions().get(x));
+      model.put("template", "templates/post_error.vtl");
+      return new ModelAndView(model,layoutPost);
+    }, new VelocityTemplateEngine());
+
+    post("/pre/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
       model.put("error", thisError);
@@ -164,13 +176,14 @@ public class App {
       return null;
     });
 
-    get("/post/errors/:id", (request,response) -> {
+    post("/post/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
       model.put("error", thisError);
       model.put("allSolutions", Solution.all());
       model.put("template", "templates/post_error.vtl");
-      return new ModelAndView(model,layoutPost);
-    }, new VelocityTemplateEngine());
+      response.redirect("/post/errors/" + thisError);
+      return null;
+    });
   }
 }
