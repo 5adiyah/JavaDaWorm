@@ -1,16 +1,12 @@
 <div class = "terminal">
   <h3>$error.getName()</h3>
  
- #if($errors.size() != 0)
+ 
 	 #if($randomSolution.getTag().equals("pre"))
 	 <h5>$randomSolution.getName()</h5>
 	 <p>$randomSolution.getDescription()</p>
-	 #else 
-	 Error 1
-	#end
-	#else
-	Error 2
-#end
+	 #end
+	 
 
     <a href="/pre/errors/$error.getId()"><button class = "round-button center">Get Another Solution</button></a>
 </div>
