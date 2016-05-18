@@ -34,12 +34,25 @@ public class App {
       return new ModelAndView(model, layoutPost);
     },new VelocityTemplateEngine());
 
+    get("/login", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("errors", Error.allErrors());
+      model.put("template", "templates/login.vtl");
+      return new ModelAndView(model, layout);
+    },new VelocityTemplateEngine());
+
     get("/admin", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("errors", Error.allErrors());
       model.put("template", "templates/admin.vtl");
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
+
+    get("/email/admin", (request, response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      model.put("template", "templates/email_admin.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
     get("/admin/errors/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();

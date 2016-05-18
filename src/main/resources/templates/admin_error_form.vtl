@@ -3,14 +3,17 @@
     <div class = "child">
       <h1 id = "padding">ADD ERROR</h1>
       <form action="/admin/errors" method="post">
+
         <label for="name">Name<img src = "/cursor.gif"></label>
-        <input type="text" name="name" id = "name"></input>
+        <input type="text" name="name" id = "name" required></input>
+
         <label for = "type">Type of Error</label>
         <select name="types" id = "types">
           <option value="pre">Pre Error</option>
           <option value="post">Post Error</option>
         </select>
         <img src = "/cursor.gif">
+
         <label for = "tags">Tag</label>
         <select name="tags" id = "tags">
           <option value="typos">typos</option>
@@ -20,6 +23,7 @@
           <option value="stale-element">Stale Element Exception</option>
         </select>
         <img src = "/cursor.gif">
+        
         <button class="btn homebrew-medium" type="submit">Add an Error</button>
       </form>
     </div>
