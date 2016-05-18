@@ -34,6 +34,13 @@ public class App {
       return new ModelAndView(model, layoutPost);
     },new VelocityTemplateEngine());
 
+    get("/login", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("errors", Error.allErrors());
+      model.put("template", "templates/login.vtl");
+      return new ModelAndView(model, layout);
+    },new VelocityTemplateEngine());
+
     get("/admin", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("errors", Error.allErrors());
@@ -49,7 +56,7 @@ public class App {
 
     get("/email/thanks", (request, response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
-      model.put("template", "templates/email_thanks.vtl")
+      model.put("template", "templates/email_thanks.vtl");
     }, new VelocityTemplateEngine());
 
     get("/admin/errors/new", (request, response) -> {
@@ -107,11 +114,24 @@ public class App {
     get("/pre/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
+      Integer rand = Error.randomNumber();
+      Error randomSolution = Error.find(Integer.parseInt(request.params(":id")));
       model.put("error", thisError);
       model.put("allSolutions", Solution.all());
+      model.put("randomSolution", randomSolution.getSolutions().get(rand));
       model.put("template", "templates/pre_error.vtl");
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
+
+    post("/post/errors/:id", (request,response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      Error thisError = Error.find(Integer.parseInt(request.params(":id")));
+      model.put("error", thisError);
+      model.put("allSolutions", Solution.all());
+      model.put("template", "templates/post_error.vtl");
+      response.redirect("/pre/errors/" + thisError);
+      return null;
+    });
 
     get("/post/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();

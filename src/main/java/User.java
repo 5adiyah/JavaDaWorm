@@ -31,10 +31,12 @@ public class User {
   @Override public boolean equals (Object otherUser) {
     if(!(otherUser instanceof User)) {
       return false;
-    } else User newUser = (User)otherUser;
+    } else  {
+      User newUser = (User)otherUser;
         return this.getError().equals(newUser.getError()) &&
                this.getSolution().equals(newUser.getSolution) &&
                this.getId() == (newUser.getSolution());
+      }
   }
 
   public void save() {

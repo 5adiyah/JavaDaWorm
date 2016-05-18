@@ -138,11 +138,13 @@ public class Error {
   public static int randomNumber() {
 
     Random random = new Random();
-    int x = random.nextInt(Solution.all().size());
+    int x = random.nextInt(Solution.all().size()-1);
 
     return x;
   }
 }
+
+
 
 
 
