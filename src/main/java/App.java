@@ -41,6 +41,12 @@ public class App {
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
 
+    get("/email/admin", (request, response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      model.put("template", "templates/email_admin.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     get("/admin/errors/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/admin_error_form.vtl");
