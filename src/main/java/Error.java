@@ -106,6 +106,8 @@ public class Error {
     }
   }
 
+
+
   public void delete() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "DELETE FROM errors WHERE id = :id";
@@ -135,11 +137,4 @@ public class Error {
   }
 
 
-  public static int randomNumber() {
-
-    Random random = new Random();
-    int x = random.nextInt(Solution.all().size()-1);
-
-    return x;
-  }
 }
