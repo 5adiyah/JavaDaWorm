@@ -7,8 +7,24 @@ body {
   color: rgb(70, 252, 62);
   margin:25px;
   padding:25px;
-  border-top: 5px rgb(246, 246, 246) solid;
-  border:5px rgb(250, 250, 250) solid;
+  border-top: 25px rgb(246, 246, 246) solid;
+  border-left:5px rgb(250, 250, 250) solid;
+  border-right:5px rgb(250, 250, 250) solid;
+  border-bottom:5px rgb(250, 250, 250) solid;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-image: url("terminal.png") 10 round round;
+}
+
+.buttons {
+  color: #C1B6B6;
+  font-family: serif;
+  font-size: 100px;
+  letter-spacing: -15px;
+  line-height: 0;
+  position: absolute;
+  top: 11px;
+  left: 23px;
 }
 
 p, a, label, select {
@@ -118,6 +134,11 @@ textarea {
   color: white;
 
 }
+
+textarea#description {
+  border:1px #000 solid;
+  vertical-align: top;
+}
 .round-button {
     display:block;
     width:200px;
@@ -143,6 +164,30 @@ textarea {
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+
+.red {
+  color: red;
+  font-size: 36px;
+}
+
+.redsmall {
+  color: red;
+  font-size: 24px;
+}
+
+.border {
+  border-bottom: 1px #ccc dashed;
+  padding: 5px;
+}
+
+.green {
+  color: #00ff00;
+  font-size: 24px;
+}
+
+.marginleft {
+  margin-left:30px;
 }
 
 .sims {
