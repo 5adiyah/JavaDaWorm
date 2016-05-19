@@ -103,7 +103,7 @@ public class AppTest extends FluentTest {
   public void postErrorShowsThatErrorsSolutions() {
     Error testError = new Error("Null Pointer Error", "post", "semi-colons");
     testError.save();
-    String url = String.format("http://localhost:4567/admin/errors/%d", testError.getId());
+    String url = String.format("http://localhost:4567/", testError.getId());
     goTo(url);
     fill("#name").with("Null Pointer Error");
     fill("#description").with("you numbnuts");
