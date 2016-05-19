@@ -63,7 +63,7 @@ public class AppTest extends FluentTest {
     click("a", withText ("Add Error"));
     fill("#name").with("500 Error");
     fillSelect("#types").withText("Post Error");
-    fillSelect("#tags").withText("typos");
+    fillSelect("#tags").withText("Typos");
     submit("btn");
     assertThat(pageSource()).contains("500 Error");
   }
@@ -76,7 +76,7 @@ public class AppTest extends FluentTest {
     goTo(url);
     fill("#name").with("semicolon");
     fill("#description").with("you numbnuts");
-    fillSelect("#tags").withText("semi-colons");
+    fillSelect("#tags").withText("typos");
     submit("btn");
     assertThat(pageSource()).contains("semicolon");
   }
@@ -133,7 +133,7 @@ public class AppTest extends FluentTest {
   //   click("a", withText("**DELETE ALL**"));
   //   click("a", withText("USER ERROR"));
   //   assertThat(pageSource()).notContains("500 error");
-    
+
   // }
 
 
@@ -151,14 +151,14 @@ public class AppTest extends FluentTest {
     testError2.addSolutions(testSolution2);
     String url = String.format("http://localhost:4567/pre/errors/%d", testError.getId());
     goTo(url);
-    assertThat(pageSource()).contains("Name");
+    assertThat(pageSource()).contains("Description");
     click("a", withText("Get Solution"));
     assertThat(pageSource()).contains("Description");
     String url2 = String.format("http://localhost:4567/post/errors/%d", testError2.getId());
     goTo(url2);
     assertThat(pageSource()).contains("Description");
     click("a", withText("Get Another Solution"));
-    assertThat(pageSource()).contains("Name");
+    assertThat(pageSource()).contains("Description");
   }
 
 
@@ -180,10 +180,7 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("DELETED!");
     String url2 = String.format("http://localhost:4567/admin/%d/solutions/%d", testError2.getId(), testSolution2.getId());
     goTo(url2);
-    click("a", withText("**Delete This Error?"));
+    click("a", withText("**Delete This Solution?"));
     assertThat(pageSource()).contains("DELETED!");
   }
 }
-
-
-

@@ -1,0 +1,236 @@
+body {
+  font-family: Consolas, monaco, monospace;
+  background-color: black;
+}
+
+.terminal {
+  color: rgb(70, 252, 62);
+  margin:25px;
+  padding:25px;
+  border-top: 25px rgb(246, 246, 246) solid;
+  border-left:5px rgb(250, 250, 250) solid;
+  border-right:5px rgb(250, 250, 250) solid;
+  border-bottom:5px rgb(250, 250, 250) solid;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-image: url("terminal.png") 10 round round;
+}
+
+.buttons {
+  color: #C1B6B6;
+  font-family: serif;
+  font-size: 100px;
+  letter-spacing: -15px;
+  line-height: 0;
+  position: absolute;
+  top: 11px;
+  left: 30px;
+}
+
+p, a, label, select {
+  font-size: 20px;
+  color: #00ff00;
+  text-decoration: none;
+  color: rgb(70, 252, 62);
+}
+
+span {
+  font-size: 20px;
+  color:white;
+}
+
+a:hover {
+  font-style: italic;
+  color: white;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+  color: white;
+}
+
+input, select {
+  background-color:black;
+  color:white;
+}
+
+.parent {
+  padding: 5% 0;
+  text-align: center;
+}
+
+.child {
+  padding: 10% 0;
+}
+
+#padding {
+  padding: 20px;
+}
+
+.homebrew {
+  background-color:black;
+  color: #00ff00;
+  border-width:2px;
+  border-color:#00ff00;
+  height: 100px;
+  width:300px;
+  margin: 10px;
+}
+
+.btn {
+  border-radius: 3%;
+}
+
+.homebrew-small {
+  background-color:black;
+  color: #00ff00;
+  border-width:2px;
+  border-color:#00ff00;
+  font-size:12px;
+  /*height:30px;*/
+  /*width:100px;*/
+  margin: 20px;
+}
+
+.homebrew-medium {
+  background-color:black;
+  color: #00ff00;
+  text: #00ff00;
+  border-width:2px;
+  border-color:#00ff00;
+  font-size:18px;
+  /*height:40px;*/
+}
+
+select option {
+  background-color:black;
+  color: #00ff00;
+  font-family: Consolas, monaco, monospace;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.semicolon-man {
+    height: 500px;
+    width: 300px;
+    margin-top: -100px;
+}
+
+
+ul {
+  list-style-type: none;
+}
+
+input, select {
+  border-color: black;
+}
+
+textarea {
+  resize: none;
+  background-color: black;
+  color: white;
+
+}
+
+textarea#description {
+  border:1px #000 solid;
+  vertical-align: top;
+}
+.round-button {
+    display:block;
+    width:200px;
+    height:200px;
+    line-height:200px;
+    border: 2px solid #00ff00;
+    border-radius: 50%;
+    color:#00ff00;
+    text-align:center;
+    text-decoration:none;
+    background: black;
+    box-shadow: 0 0 3px gray;
+    font-size:20px;
+    font-weight:bold;
+    font-family: Consolas, monaco, monospace;
+}
+.round-button:hover {
+    background: #262626;
+}
+
+.center {
+  align-items: center;
+  text-align:center;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.red {
+  color: red;
+  font-size: 36px;
+}
+
+.redsmall {
+  color: red;
+  font-size: 24px;
+}
+
+.border {
+  border-bottom: 1px #ccc dashed;
+  padding: 5px;
+}
+.absolute {
+  position: absolute;
+  margin: 75px;
+}
+
+.green {
+  color: #00ff00;
+  font-size: 24px;
+}
+
+.marginleft {
+  margin-left:30px;
+}
+
+.sims {
+  margin-top: 15%;
+  padding-left: 100px;
+}
+
+.index {
+  padding-top: 50px;
+}
+
+.bubblediv {
+  margin-top: -500px;
+  margin-left: 80px;
+  height: 400px;
+  padding: 10px;
+  border: #00ff00 3px solid;
+  text-align: left;
+}
+
+.indexbutton {
+  margin-left: -10px;
+}
+
+button a {
+  font-family: Consolas, monaco, monospace;
+}
+
+.cursor {
+    position: absolute;
+    margin-top: -2px;
+}
+
+.inline{
+  display: inline;
+}

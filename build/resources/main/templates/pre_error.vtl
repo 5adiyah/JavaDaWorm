@@ -1,0 +1,15 @@
+<div class = "terminal">
+  <p class="buttons">. . .</p>
+
+	 #if($error.getType().equals("pre"))
+	 <p><br>$errorToBeSolved.getDescription()</p>
+	 #else
+	 	$errorNotification
+	 #end
+
+
+    <a href="/pre/errors/$error.getId()"><button class = "round-button center">Get Solution</button></a>
+</div>
+
+<img src = "/sims.png" class = "semicolon_man">
+<button class = "btn homebrew-medium bottom-right absolute"><a href = "/">HOME</a></button>

@@ -1,0 +1,44 @@
+<div class = "terminal">
+  <p class="buttons">. . .</p>
+  <div class="container">
+    <div class = "child">
+      <h1 id = "padding">ADD ERROR</h1>
+      <form action="/admin/errors" method="post">
+
+        <label for="name">Name<img src = "/cursor.gif"></label>
+        <input type="text" name="name" id = "name" required></input>
+
+        <label for = "type">Type of Error</label>
+        <select name="types" id = "types">
+          <option value="pre">Pre Error</option>
+          <option value="post">Post Error</option>
+        </select>
+        <img src = "/cursor.gif">
+
+        <label for = "tags">Tag</label>
+        <select name="tags" id = "tags">
+          <option value="typos">Typos</option>
+          <option value="static">Static</option>
+          <option value="instantiation">Instantiation</option>
+          <option value="cannot-find">Cannot Find Symbol</option>
+          <option value="file">File Errors</option>
+          <option value="psql-error">PSQLException</option>
+          <option value="gradle">Gradle</option>
+          <option value="variables">Variables</option>
+          <option value="stale-element">Stale Element Exception</option>
+          <option value="500">500 Error</option>
+          <option value="400">400 Not Found</option>
+          <option value="null">Null Pointer</option>
+          <option value="spark">Spark</option>
+        </select>
+        <img src = "/cursor.gif">
+        <br>
+        <button class="btn homebrew-medium" type="submit">Add an Error</button>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+<div class = "bottom-right">
+  <button type = "submit" class = "btn homebrew-small"><a href="/">HOME</a></button>
+</div>

@@ -1,0 +1,11 @@
+<div class = "container">
+	 #if($error.getType().equals("post"))
+	  <h1>$errorToBeSolved.getDescription()</h1>
+	 #end
+
+    <button class = "round-button center"><a href="/post/errors/$error.getId()" class = "white">Get Another Solution</a></button>
+
+    <img src = "/WhiteSims.png" class = "bottom-left">
+
+</div>
+<button class = "btn bottom-right"><a href = "/">HOME</a></button>
