@@ -70,4 +70,5 @@ img {
 .bottom-right {
   bottom:0;
   right:0;
+  float:right;
 }

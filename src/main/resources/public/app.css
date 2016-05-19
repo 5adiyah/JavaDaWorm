@@ -25,7 +25,6 @@ body {
   position: absolute;
   top: 11px;
   left: 30px;
-  font-family: Consolas, monaco, monospace;
 }
 
 p, a, label, select {
@@ -125,9 +124,6 @@ select option {
     margin-top: -100px;
 }
 
-.cursor {
-  height: 20px;
-}
 
 ul {
   list-style-type: none;
@@ -190,6 +186,10 @@ textarea#description {
   border-bottom: 1px #ccc dashed;
   padding: 5px;
 }
+.absolute {
+  position: absolute;
+  margin: 75px;
+}
 
 .green {
   color: #00ff00;
@@ -220,4 +220,17 @@ textarea#description {
 
 .indexbutton {
   margin-left: -10px;
+}
+
+button a {
+  font-family: Consolas, monaco, monospace;
+}
+
+.cursor {
+    position: absolute;
+    margin-top: -2px;
+}
+
+.inline{
+  display: inline;
 }
