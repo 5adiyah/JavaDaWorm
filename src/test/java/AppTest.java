@@ -159,13 +159,14 @@ public class AppTest extends FluentTest {
     newUser.save();
     String url = String.format("http://localhost:4567/admin/users/inputs");
     goTo(url);
-    click("a", withText("delete"));
+    click("a", withText("**DELETE ALL**"));
+    click("a", withText("USER ERROR"))
     assertThat(pageSource()).contains("")
   }
 
   @Test
   public void errorsAndSolutionsAreDeleted() {
-
+    
   }
 
 }
