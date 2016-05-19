@@ -108,4 +108,50 @@ public class AppTest extends FluentTest {
   //   click("a", withText("**DELETE ALL**"));
   //   assertThat(pageSource()).contains("Add Error");
   // }
+
+  @Test
+  public void preAndPostErrorsGenerateSolutions() {
+    Error testError = new Error("Null Pointer Error", "pre", "semi-colons");
+    Error testError2 = new Error("Null Pointer Error", "post", "semi-colons");
+    Solution testSolution = new Solution("Name", "Description", "Tag");
+    Solution testSolution2 = new Solution("Name", "Description", "Tag");
+    testError.save();
+    testError2.save();
+    testSolution.save();
+    testSolution2.save();
+    testError.addSolutions(testSolution);
+    testError2.addSolutions(testSolution2);
+    String url = String.format("http://localhost:4567/pre/errors/%d", testError.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("Name");
+    click("a", withText("Get Another Solution"));
+    assertThat(pageSource()).contains("Description");
+    String url2 = String.format("http://localhost:4567/post/errors/%d", testError2.getId());
+    goTo(url2);
+    assertThat(pageSource()).contains("Description");
+    click("a", withText("Get Another Solution"));
+    assertThat(pageSource()).contains("Name");
+  }
+
+  @Test
+  public void usersAreDeleted() {
+    User newUser = new User("500 error", "I dunno");
+    newUser.save();
+    String url = String.format("http://localhost:4567/admin/users/inputs");
+    goTo(url);
+    click("a", withText("delete"));
+    assertThat(pageSource()).contains("")
+  }
+
+  @Test
+  public void errorsAndSolutionsAreDeleted() {
+
+  }
+
 }
+
+
+
+
+
+
