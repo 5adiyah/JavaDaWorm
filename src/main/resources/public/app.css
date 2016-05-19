@@ -202,11 +202,10 @@ textarea#description {
 .bubblediv {
   margin-top: -500px;
   margin-left: 80px;
-  background-color: #fff;
-  border-radius: 100%;
   height: 400px;
-  /* padding-top: 100px; */
-  padding: 100px;
+  padding: 10px;
+  border: #00ff00 3px solid;
+  text-align: left;
 }
 
 .indexbutton {

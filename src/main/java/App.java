@@ -116,7 +116,6 @@ public class App {
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
-<<<<<<< HEAD
     get("/admin/:id/solutions/:sId/delete", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
@@ -128,7 +127,6 @@ public class App {
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
-=======
     get("/admin/users/inputs", (request, response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       model.put("template", "templates/user_errors.vtl");
@@ -157,7 +155,6 @@ public class App {
       return new ModelAndView(model, layoutPost);
     },new VelocityTemplateEngine());
 
->>>>>>> ae56062a2c3cf7635713bf1754605df0b42be453
     get("/pre/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
