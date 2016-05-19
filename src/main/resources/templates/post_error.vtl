@@ -1,12 +1,11 @@
-<div class = "terminal">
-  <h3>$error.getName()</h3>
-
-
-
+<div class = "container">
 	 #if($error.getType().equals("post"))
-	 <h5>$errorToBeSolved.getName()</h5>
-	 <p>$errorToBeSolved.getDescription()</p>
+	  <h1>$errorToBeSolved.getDescription()</h1>
 	 #end
-	 
-    <a href="/post/errors/$error.getId()"><button class = "round-button center">Get Another Solution</button></a>
+
+    <button class = "round-button center"><a href="/post/errors/$error.getId()" class = "white">Get Another Solution</a></button>
+
+    <img src = "/WhiteSims.png" class = "bottom-left">
+
 </div>
+<button class = "btn bottom-right">HOME</button>

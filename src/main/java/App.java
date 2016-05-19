@@ -56,7 +56,7 @@ public class App {
       model.put("template", "templates/admin.vtl");
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
-    
+
 
     get("/admin/errors/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -168,8 +168,8 @@ public class App {
       model.put("allSolutions", Solution.all());
       if(errorToBeSolved.getSolutions().size() != 0){
         int x = random.nextInt(errorToBeSolved.getSolutions().size());
-        model.put("errorToBeSolved", errorToBeSolved.getSolutions().get(x)); 
-        model.put("template", "templates/pre_error.vtl"); 
+        model.put("errorToBeSolved", errorToBeSolved.getSolutions().get(x));
+        model.put("template", "templates/pre_error.vtl");
       }
       else{
         model.put("template", "templates/no_solution.vtl");
@@ -177,7 +177,7 @@ public class App {
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
-    
+
     get("/post/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
@@ -188,13 +188,13 @@ public class App {
       model.put("allSolutions", Solution.all());
       if(errorToBeSolved.getSolutions().size() != 0){
         int x = random.nextInt(errorToBeSolved.getSolutions().size());
-        model.put("errorToBeSolved", errorToBeSolved.getSolutions().get(x)); 
-        model.put("template", "templates/post_error.vtl"); 
+        model.put("errorToBeSolved", errorToBeSolved.getSolutions().get(x));
+        model.put("template", "templates/post_error.vtl");
       }
       else{
         model.put("template", "templates/no_solution.vtl");
       }
-      return new ModelAndView(model,layout);
+      return new ModelAndView(model,layoutPost);
     }, new VelocityTemplateEngine());
 
 
