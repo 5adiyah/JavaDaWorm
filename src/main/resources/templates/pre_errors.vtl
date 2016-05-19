@@ -4,7 +4,7 @@
   #foreach($error in $errors)
     #if($error.getType() == "pre")
       <ul>
-        <li><a href="/pre/errors/$error.getId()">$error.getName()</a><img src = "/cursor.gif"> <span class="marginleft">$error.getTag()</span></li>
+        <li><a href="/pre/errors/$error.getId()">$error.getName()</a><img src = "/cursor.gif"></li>
       </ul>
     #end
   #end
