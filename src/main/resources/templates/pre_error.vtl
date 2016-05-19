@@ -1,12 +1,13 @@
 <div class = "terminal">
-  <h3>$error.getName()</h3>
+  <p class="buttons">. . .</p>
+  <h3><span class="redsmall">Error:</span> $error.getName()</h3>
 
 	 #if($error.getType().equals("pre"))
 
-	 <h5>$errorToBeSolved.getName()</h5>
-	 <p>$errorToBeSolved.getDescription()</p>
+	 <h3><span class="green">Solution:</span> $errorToBeSolved.getName()</h3>
+	 <p><br>$errorToBeSolved.getDescription()</p>
 	 #end
 
 
-    <a href="/pre/errors/$error.getId()"><button class = "round-button center">Get Another Solution</button></a>
+    <a href="/pre/errors/$error.getId()"><button class = "round-button center">Get Solution</button></a>
 </div>
