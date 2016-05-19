@@ -113,6 +113,15 @@ public class App {
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
+    get("/admin/errors/:id/delete", (request,response) -> {
+      HashMap<String,Object> model = new HashMap<String,Object>();
+      Error error = Error.find(Integer.parseInt(request.params(":id")));
+      error.delete();
+      model.put("error", error);
+      model.put("template", "templates/delete_success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     post("/admin/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Integer errorId = Integer.parseInt(request.params(":id"));
@@ -135,6 +144,17 @@ public class App {
       model.put("error", thisError);
       model.put("solution", thisSolution);
       model.put("template", "templates/admin_solution.vtl");
+      return new ModelAndView(model,layout);
+    }, new VelocityTemplateEngine());
+
+    get("/admin/:id/solutions/:sId/delete", (request,response) -> {
+      Map<String,Object> model = new HashMap<String,Object>();
+      Error thisError = Error.find(Integer.parseInt(request.params(":id")));
+      Solution thisSolution = Solution.find(Integer.parseInt(request.params("sId")));
+      thisSolution.delete();
+      model.put("error", thisError);
+      model.put("solution", thisSolution);
+      model.put("template", "templates/delete_success.vtl");
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 

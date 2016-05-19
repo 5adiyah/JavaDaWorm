@@ -1,16 +1,12 @@
 <div class = "terminal">
   <h3>$error.getName()</h3>
- 
- 
-	
+
+
+
 	 #if($error.getType().equals("post"))
 	 <h5>$errorToBeSolved.getName()</h5>
 	 <p>$errorToBeSolved.getDescription()</p>
 	 #end
 	 
-
     <a href="/post/errors/$error.getId()"><button class = "round-button center">Get Another Solution</button></a>
 </div>
-
-
-
