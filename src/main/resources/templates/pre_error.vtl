@@ -1,8 +1,8 @@
 <div class = "terminal">
   <h3>$error.getName()</h3>
 
+	 #if($error.getType().equals("pre"))
 
-	 #if($errorToBeSolved.getTag().equals("pre"))
 	 <h5>$errorToBeSolved.getName()</h5>
 	 <p>$errorToBeSolved.getDescription()</p>
 	 #end
