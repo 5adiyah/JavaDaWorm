@@ -189,3 +189,26 @@ textarea#description {
 .marginleft {
   margin-left:30px;
 }
+
+.sims {
+  margin-top: 15%;
+  padding-left: 100px;
+}
+
+.index {
+  padding-top: 50px;
+}
+
+.bubblediv {
+  margin-top: -500px;
+  margin-left: 80px;
+  background-color: #fff;
+  border-radius: 100%;
+  height: 400px;
+  /* padding-top: 100px; */
+  padding: 100px;
+}
+
+.indexbutton {
+  margin-left: -10px;
+}
