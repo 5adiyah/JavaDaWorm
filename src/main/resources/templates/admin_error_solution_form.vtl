@@ -1,15 +1,17 @@
 <div class = "terminal">
-  <h1>$error.getName()</h1>
-  <h3>$error.getType()</h3>
-  <h3>$error.getTag()</h3>
+  <p class="buttons">. . .</p>
+  <h1><span class="red">Error:</span> $error.getName()</h1>
+  <h3>Type &raquo; $error.getType()</h3>
+  <h3>Tag &raquo; <span class="border">$error.getTag()</span></h3>
 
+  <br>
   #if($error.getSolutions())
     Solutions for this Error:
     #foreach($solution in $error.getSolutions())
       <ul>
-        <li><a href = "/admin/$error.getId()/solutions/$solution.getId()">$solution.getName()</a></li>
+        <li><br><a href = "/admin/$error.getId()/solutions/$solution.getId()">$solution.getName()</a></li>
         $solution.getDescription()
-        $solution.getTag()
+        /$solution.getTag()
       </ul>
     #end
   #end
@@ -21,7 +23,7 @@
     <input type="text" name = "name" id = "name" required></input>
 
     <label for = "description">Description</label><img src = "/cursor.gif">
-    <input type = "text" name = "description" id = "description" required></input>
+    <textarea type = "text" name = "description" id = "description" required></textarea>
 
     <label for = "tags">Tag</label>
     <select name = "tags" id = "tags" type="text">
