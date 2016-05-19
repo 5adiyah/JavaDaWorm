@@ -213,6 +213,14 @@ COPY errors (id, name, type, tag) FROM stdin;
 16	CANNOT FIND SYMBOL	pre	cannot-find
 17	GRADLE ERROR	pre	gradle
 18	VARIABLES	pre	variables
+19	500 ERROR	post	500
+20	400 ERROR	post	400
+21	NULL POINTER EXCEPTION	post	null
+22	CANNOT FIND SYMBOL	post	cannot-find
+23	VARIABLES	post	variables
+24	MISPELLINGS	post	typos
+25	FORMAL TYPOS	post	typos
+26	SPARK	post	spark
 \.
 
 
@@ -220,7 +228,7 @@ COPY errors (id, name, type, tag) FROM stdin;
 -- Name: errors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kendra
 --
 
-SELECT pg_catalog.setval('errors_id_seq', 18, true);
+SELECT pg_catalog.setval('errors_id_seq', 26, true);
 
 
 --
@@ -275,6 +283,50 @@ COPY errors_solutions (id, error_id, solution_id) FROM stdin;
 67	18	67
 68	18	68
 69	18	69
+70	19	70
+71	19	71
+72	19	72
+73	19	73
+74	19	74
+75	20	75
+76	20	76
+77	20	77
+78	20	78
+79	21	79
+80	21	80
+81	21	81
+82	21	82
+83	21	83
+84	22	84
+85	22	85
+86	22	86
+87	22	87
+88	22	88
+89	22	89
+90	23	90
+91	23	91
+92	23	92
+93	23	93
+94	24	94
+95	24	95
+96	24	96
+97	24	97
+98	24	98
+99	24	99
+100	25	100
+101	25	101
+102	25	102
+103	25	103
+104	25	104
+106	26	106
+107	26	107
+108	26	108
+109	26	109
+110	26	110
+111	26	111
+112	26	112
+113	26	113
+114	26	114
 \.
 
 
@@ -282,7 +334,7 @@ COPY errors_solutions (id, error_id, solution_id) FROM stdin;
 -- Name: errors_solutions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kendra
 --
 
-SELECT pg_catalog.setval('errors_solutions_id_seq', 69, true);
+SELECT pg_catalog.setval('errors_solutions_id_seq', 114, true);
 
 
 --
@@ -337,6 +389,50 @@ COPY solutions (id, name, description, tag) FROM stdin;
 67	VARIABLE SOLUTION	Check your terminal, dude. I can't fix everything for you.	variables
 68	VARIABLE SOLUTION	Does that variable already exist? If you use the same one without meaning to, you give the poor thing an identity crisis. It just wants to know what you want.	variables
 69	VARIABLE SOLUTION	Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?	variables
+70	500 ERROR SOLUTION	Your App thinks something exists. It doesn't. You probably spelled something wrong. Go fix it.	500
+71	500 ERROR SOLUTION	Did you #end all your #if and #foreach statements? If you didn't you broke it.	500
+72	500 ERROR SOLUTION	I know we're on the honor system on whether or not you've already tested your methods, but even if you did, and they're passing, they're not doing what you think they're doing?	500
+73	500 ERROR SOLUTION	Check your terminal, dude. I can't fix everything for you.	500
+74	500 ERROR SOLUTION	Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?	500
+75	400 ERROR SOLUTION	You think you're sending the user somewhere but that place doesn't exist. Your program is trying to do your bidding, but it has no idea what you're talking about. Check your routes, yo. Help a brother out.	400
+76	400 ERROR SOLUTION	Your link is broken. Go fix it. It's ok, I'll wait.	400
+77	400 ERROR SOLUTION	FilE PatheS ArE SensItiVe to CasE and missspelings. If you typed them right the first time we wouldn't be having this conversation.	400
+78	400 ERROR SOLUTION	Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?	400
+79	NULL POINTER SOLUTION	You know you can't call class-specific methods on a different class, right? If you need that method on a different class, you need to create it there. Don't copy and paste! Copy and paste is the enemy!	null
+80	NULL POINTER SOLUTION	Java cares. Specifically, Java cares about data types remaining the same. Did YOU care?	null
+81	NULL POINTER SOLUTION	Did you skip a step? Did you try to use an instance of your class without using a save function, for example?	null
+82	NULL POINTER SOLUTION	Check your terminal, dude. I can't fix everything for you.	null
+83	NULL POINTER SOLUTION	Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?	null
+84	CANNOT FIND SYMBOL SOLUTION	Did you call your methods and variables what you think you called them? Did you actually type that into your code?	cannot-find
+85	CANNOT FIND SYMBOL SOLUTION	Have you imported all your dependencies? Java isn't a mind reader.	cannot-find
+86	CANNOT FIND SYMBOL SOLUTION	I know you think it exists, but it doesn't. You probably spelled something wrong. Or you just forgot to write an entire method. Dummy.	cannot-find
+87	CANNOT FIND SYMBOL SOLUTION	Copy and paste is not your friend. Does everything you're testing exist, in your current application, in the file you're testing? This is your moment of zen.	cannot-find
+88	CANNOT FIND SYMBOL SOLUTION	Check your terminal, dude. I can't fix everything for you.	cannot-find
+89	CANNOT FIND SYMBOL SOLUTION	Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?	cannot-find
+90	VARIABLE SOLUTION	I have to ask, is the variable actually what you think it is? CaSe MaTtErS. Extras s's ares a problems.	variables
+91	VARIABLE SOLUTION	Java cares. Specifically, Java cares about data types remaining the same. Did YOU care?\r\n  Solution: Check your terminal, dude. I can't fix everything for you.	variables
+92	VARIABLE SOLUTION	Does that variable already exist? If you use the same one without meaning to, you give the poor thing an identity crisis. It just wants to know what you want.	variables
+93	VARIABLE SOLUTION	Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?	variables
+94	MISPELLINGS SOLUTION	asserThat? Did you mean assertThat?	typos
+95	MISPELLINGS SOLUTION	Are your variables called what you think they're called?	typos
+96	MISPELLINGS SOLUTION	Did you add an 's' where you shouldn't? You did, didn't you.	typos
+97	MISPELLINGS SOLUTION	DiD yOu CaPiTaLiZe EvErYtHiNg CoRrEcTlY?!?	typos
+98	MISPELLINGS SOLUTION	Check your terminal, dude. I can't fix everything for you.	typos
+99	MISPELLINGS SOLUTION	Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?	typos
+100	FORMAL TYPO SOLUTIONS	You're probably missing a semi-colon. It's always the semi-colons.	typos
+101	FORMAL TYPO SOLUTIONS	Are all your parentheses closed? I bet they're not.	typos
+102	FORMAL TYPO SOLUTIONS	Are all your curly-brackets closed? Is there a more professional word for those? These things: { }.	typos
+103	FORMAL TYPO SOLUTIONS	Check your terminal, dude. I can't fix everything for you.	typos
+104	FORMAL TYPO SOLUTIONS	Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?	typos
+106	SPARK SOLUTION	Check yo' routes yo. Is your page going where your App thinks it's going?	spark
+107	SPARK SOLUTION	Are you GETting when you should be POSTing?	spark
+108	SPARK SOLUTION	model.put is your friend. If you don't put it into the page, the page thinks you're talking nonsense.	spark
+109	SPARK SOLUTION	RESTful routing RESTful routing RESTful routing RESTful routing RESTful routing RESTful routing RESTful routing... have I gotten my point across yet?	spark
+110	SPARK SOLUTION	Are your params querying the name element? Spark and input IDs had a fight a while back and now they're not talking to each other.	spark
+111	SPARK SOLUTION	Check yo' file names yo. Did you never create that .vtl file? It was 4:45 and you wanted to sign out huh.	spark
+112	SPARK SOLUTION	Did you remember those dolla' dollas $$$$$$$??????	spark
+113	SPARK SOLUTION	Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?	spark
+114	SPARK SOLUTION	Check your terminal, dude. I can't fix everything for you.	spark
 \.
 
 
@@ -344,7 +440,7 @@ COPY solutions (id, name, description, tag) FROM stdin;
 -- Name: solutions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: kendra
 --
 
-SELECT pg_catalog.setval('solutions_id_seq', 69, true);
+SELECT pg_catalog.setval('solutions_id_seq', 114, true);
 
 
 --

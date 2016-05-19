@@ -100,8 +100,100 @@ VARIABLES:
   Solution: Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?
 
 
-POST - Actual and formal arguments differ in length - Instantiation Error - Cannot Find Symbol - Mispelling - This error also comes up if you misspell a variable or method that you are trying to call. - Foo cannot be converted to String - Incompatible Types - Make sure your file types are the same when trying to convert or assign things to each other. - Bad initializer - Syntax Error - Missing the # sign for a for or if loop in velocity template - No such Element - Typos The integration test cannot find the element on the page. Make sure there are no typos or capilization errors. - Non-Static variable cannot be referenced from a static context - Incompatible Types - Make sure your variable matches the context you are referencing it from.
+~ * ~ * ~ * ~ * ~ * ~ * ~POST~ * ~ * ~ * ~ * ~ * ~ * ~
+
+500 Error
+  Name: 500 Error
+  Type: post
+  Tag: 500 Error
+
+Solution: Your App thinks something exists. It doesn't. You probably spelled something wrong. Go fix it.
+Solution: Did you #end all your #if and #foreach statements? If you didn't you broke it.
+Solution: I know we're on the honor system on whether or not you've already tested your methods, but even if you did, and they're passing, they're not doing what you think they're doing?
+Solution: Check your terminal, dude. I can't fix everything for you.
+Solution: Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?
+
+400 ERROR
+  Name: 400 Error
+  Type: post
+  Tag: 400 Error
+
+Solution: You think you're sending the user somewhere but that place doesn't exist. Your program is trying to do your bidding, but it has no idea what you're talking about. Check your routes, yo. Help a brother out.
+Solution: Your link is broken. Go fix it. It's ok, I'll wait.
+Solution: FilE PatheS ArE SensItiVe to CasE and missspelings. If you typed them right the first time we wouldn't be having this conversation.
+Solution: Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?
+
+NULL POINTER ERROR
+  Name: Null Pointer Error
+  Type: post
+  Tag: Null Pointer Error
+
+
+Solution: You know you can't call class-specific methods on a different class, right? If you need that method on a different class, you need to create it there. Don't copy and paste! Copy and paste is the enemy!
+Solution: Java cares. Specifically, Java cares about data types remaining the same. Did YOU care?
+Solution: Did you skip a step? Did you try to use an instance of your class without using a save function, for example?
+Solution: Check your terminal, dude. I can't fix everything for you.
+Solution: Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?
+
+CANNOT FIND SYMBOL
+  Name: Cannot find symbol
+  Type: post
+  Tag: Cannot find symbol
+
+  Solution: Did you call your methods and variables what you think you called them? Did you actually type that into your code?
+  Solution: Have you imported all your dependencies? Java isn't a mind reader.
+  Solution: I know you think it exists, but it doesn't. You probably spelled something wrong. Or you just forgot to write an entire method. Dummy.
+  Solution: Copy and paste is not your friend. Does everything you're testing exist, in your current application, in the file you're testing? This is your moment of zen.
+  Solution: Check your terminal, dude. I can't fix everything for you.
+  Solution: Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?
+
+VARIABLES
+  Name: Variables
+  Type: post
+  Tag: Variables
+
+  Solution: I have to ask, is the variable actually what you think it is? CaSe MaTtErS. Extras s's ares a problems.
+  Solution: Java cares. Specifically, Java cares about data types remaining the same. Did YOU care?
+  Solution: Check your terminal, dude. I can't fix everything for you.
+  Solution: Does that variable already exist? If you use the same one without meaning to, you give the poor thing an identity crisis. It just wants to know what you want.
+  Solution: Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?
+
+
 
 TYPOS
-  Name: typos
+  Name: Mispellings
+  Type: pre
+  tag: typos
+
+  Solution: asserThat? Did you mean assertThat?
+  Solution: Are your variables called what you think they're called?
+  Solution: Did you add an 's' where you shouldn't? You did, didn't you.
+  Solution: DiD yOu CaPiTaLiZe EvErYtHiNg CoRrEcTlY?!?
+  Solution: Check your terminal, dude. I can't fix everything for you.
+  Solution: Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?
+
+TYPOS
+  Name: Formal Typos
   Type: post
+  tag: typos
+
+  Solution: You're probably missing a semi-colon. It's always the semi-colons.
+  Solution: Are all your parentheses closed? I bet they're not.
+  Solution: Are all your curly-brackets closed? Is there a more professional word for those? These things: { }.
+  Solution: Check your terminal, dude. I can't fix everything for you.
+  Solution: Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?
+
+SPARK
+  Name: Spark
+  Type: post
+  tag: Spark
+
+Solution: Check yo' routes yo. Is your page going where your App thinks it's going?
+Solution: Are you GETting when you should be POSTing?
+Solution: model.put is your friend. If you don't put it into the page, the page thinks you're talking nonsense.
+Solution: RESTful routing RESTful routing RESTful routing RESTful routing RESTful routing RESTful routing RESTful routing... have I gotten my point across yet?
+Solution: Are your params querying the name element? Spark and input IDs had a fight a while back and now they're not talking to each other.
+Solution: Check yo' file names yo. Did you never create that .vtl file? It was 4:45 and you wanted to sign out huh.
+Solution: Did you remember those dolla' dollas $$$$$$$??????
+Solution: Have you tried this new thing, I think, it's called, like, Google? Like, maybe use that? And stop bothering me about it?
+Solution: Check your terminal, dude. I can't fix everything for you.
