@@ -3,6 +3,8 @@
 
 	 #if($error.getType().equals("pre"))
 	 <p><br>$errorToBeSolved.getDescription()</p>
+	 #else
+	 	$errorNotification
 	 #end
 
 

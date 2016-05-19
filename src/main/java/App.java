@@ -163,28 +163,40 @@ public class App {
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
       Error errorToBeSolved = Error.find(Integer.parseInt(request.params(":id")));
       Random random = new Random();
-      int x = random.nextInt(errorToBeSolved.getSolutions().size());
       model.put("error", thisError);
       model.put("errors", Error.allErrors());
       model.put("allSolutions", Solution.all());
-      model.put("errorToBeSolved", errorToBeSolved.getSolutions().get(x));
-      model.put("template", "templates/pre_error.vtl");
+      if(errorToBeSolved.getSolutions().size() != 0){
+        int x = random.nextInt(errorToBeSolved.getSolutions().size());
+        model.put("errorToBeSolved", errorToBeSolved.getSolutions().get(x)); 
+        model.put("template", "templates/pre_error.vtl"); 
+      }
+      else{
+        model.put("template", "templates/no_solution.vtl");
+      }
       return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
 
+    
     get("/post/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
       Error thisError = Error.find(Integer.parseInt(request.params(":id")));
       Error errorToBeSolved = Error.find(Integer.parseInt(request.params(":id")));
       Random random = new Random();
-      int x = random.nextInt(errorToBeSolved.getSolutions().size());
       model.put("error", thisError);
       model.put("errors", Error.allErrors());
       model.put("allSolutions", Solution.all());
-      model.put("errorToBeSolved", errorToBeSolved.getSolutions().get(x));
-      model.put("template", "templates/post_error.vtl");
-      return new ModelAndView(model,layoutPost);
+      if(errorToBeSolved.getSolutions().size() != 0){
+        int x = random.nextInt(errorToBeSolved.getSolutions().size());
+        model.put("errorToBeSolved", errorToBeSolved.getSolutions().get(x)); 
+        model.put("template", "templates/post_error.vtl"); 
+      }
+      else{
+        model.put("template", "templates/no_solution.vtl");
+      }
+      return new ModelAndView(model,layout);
     }, new VelocityTemplateEngine());
+
 
     post("/pre/errors/:id", (request,response) -> {
       Map<String,Object> model = new HashMap<String,Object>();
