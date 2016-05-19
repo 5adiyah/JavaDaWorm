@@ -47,6 +47,22 @@ public class App {
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
 
+    post("/admin", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      String user = request.queryParams("userid");
+      String password = request.queryParams("pswrd");
+      String template;
+      if(user.equals("admin") && password.equals("admin")) {
+         template = "templates/admin.vtl";
+      }
+      else {
+        response.redirect("/login");
+        return null;
+      }
+      model.put("template", template);
+      return new ModelAndView(model, layout);
+    },new VelocityTemplateEngine());
+
     get("/admin", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("errors", Error.allErrors());
@@ -92,7 +108,7 @@ public class App {
       return new ModelAndView(model, layout);
     },new VelocityTemplateEngine());
 
-    post("admin/errors", (request, response) -> {
+    post("/admin/errors", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       String name = request.queryParams("name");
       String type = request.queryParams("types");

@@ -38,6 +38,25 @@ public class AppTest extends FluentTest {
   }
 
   @Test
+  public void adminLoginPageFunctions() {
+    goTo("http://localhost:4567/");
+    click("a", withText ("Admin"));
+    fill("#userid").with("admin");
+    fill("#pswrd").with("admin");
+    click("button", withText ("Log In"));
+    assertThat(pageSource()).contains("Add Error");
+  }
+
+  @Test
+  public void errorsShowOnAdminPage() {
+    Error testError = new Error("500 error", "pre", "typos");
+    testError.save();
+    String url = String.format("http://localhost:4567/admin");
+    goTo(url);
+    assertThat(pageSource()).contains("500 error");
+  }
+
+  @Test
   public void errorIsCreated() {
     goTo("http://localhost:4567/admin");
     click("a", withText ("Add Error"));
@@ -46,6 +65,19 @@ public class AppTest extends FluentTest {
     fillSelect("#tags").withText("typos");
     submit("btn");
     assertThat(pageSource()).contains("500 Error");
+  }
+
+  @Test
+  public void solutionAddedToError() {
+    Error testError = new Error("Null Pointer Error", "post", "semi-colons");
+    testError.save();
+    String url = String.format("http://localhost:4567/admin/errors/%d", testError.getId());
+    goTo(url);
+    fill("#name").with("semicolon");
+    fill("#description").with("you numbnuts");
+    fillSelect("#tags").withText("semi-colons");
+    submit("btn");
+    assertThat(pageSource()).contains("semicolon");
   }
 
   @Test
@@ -67,18 +99,6 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Null Pointer Error");
   }
 
-  @Test
-  public void solutionAddedToError() {
-    Error testError = new Error("Null Pointer Error", "post", "semi-colons");
-    testError.save();
-    String url = String.format("http://localhost:4567/admin/errors/%d", testError.getId());
-    goTo(url);
-    fill("#name").with("semicolon");
-    fill("#description").with("you numbnuts");
-    fillSelect("#tags").withText("semi-colons");
-    submit("btn");
-    assertThat(pageSource()).contains("semicolon");
-  }
   @Test
   public void postErrorShowsThatErrorsSolutions() {
     Error testError = new Error("Null Pointer Error", "post", "semi-colons");

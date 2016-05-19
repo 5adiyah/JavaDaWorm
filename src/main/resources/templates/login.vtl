@@ -2,28 +2,13 @@
   <div class="container parent">
     <div class = "child">
       <h1 class="center">Admin Login Page</h1>
-      <form name="login">
-      <img src = "/cursor.gif">
-      <input type="text" name="userid" id="userid" placeholder="Username"/>
-      <img src = "/cursor.gif">
-      <input type="password" name="pswrd" id="pswrd" placeholder="Password"/>
-      <button class="btn homebrew-medium"  type="submit"><input onclick="check(this.form)" value="Login"/></button>
+      <form action="/admin" method = "post">
+        <img src = "/cursor.gif">
+        <input type="text" name="userid" id="userid" placeholder="Username"/>
+        <img src = "/cursor.gif">
+        <input type="password" name="pswrd" id="pswrd" placeholder="Password"/>
+        <button class="btn homebrew-medium" type="submit">Log In</button>
       </form>
     </div>
   </div>
 </div>
-
-<script language="javascript">
-function check(form)/*function to check userid & password*/
-{
- /*the following code checkes whether the entered userid and password are matching*/
- if(form.userid.value == "admin" && form.pswrd.value == "admin")
-  {
-    window.open('/admin')/*opens the target page while Id & password matches*/
-  }
- else
- {
-   alert("Error Password or Username")/*displays error message*/
-  }
-}
-</script>
