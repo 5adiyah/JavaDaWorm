@@ -29,16 +29,28 @@
     <img src = "/cursor.gif">
     <select name = "tags" id = "tags" type="text">
       <option value = "typos">typos</option>
-      <option value = "semi-colons">semi-colons</option>
+      <option value="static">static</option>
       <option value = "instantiation">Instantiation</option>
-      <option value = "null-pointer">Null-Pointer</option>
+      <option value="cannot-find">Cannot Find Symbol</option>
+      <option value="file">File Errors</option>
+      <option value="psql-error">PSQLException</option>
+      <option value="gradle">Gradle</option>
+      <option value="variables">Variables</option>
       <option value = "stale-element-exception">Stale Element Exception</option>
+      <option value="500">500 Error</option>
+      <option value="400">400 Not Found</option>
+      <option value="null">Null Pointer</option>
+      <option value="spark">Spark</option>
     </select><br>
     <button type = "submit" id = "add" class = "btn homebrew-medium">Add Solution</button>
   </form>
+<<<<<<< HEAD
   <a href = "/admin/errors/$error.getId()/delete"><button class = "btn homebrew-medium btn1">**Delete This Error?</button></a>
+=======
+  <a href = "/admin/errors/$error.getId()/delete"><button class = "btn homebrew-medium">**Delete This Error?</button></a>
+</div>
+>>>>>>> 03a546bd64dbe978b7beac11dd813a2eee90e573
 
-  <div class = "bottom-left">
+  <div class = "bottom-right">
     <button type = "submit" class = "btn homebrew-small"><a href="/">HOME</a></button>
   </div>
-</div>
