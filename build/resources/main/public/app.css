@@ -118,6 +118,15 @@ select option {
   left: 0;
 }
 
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+}
 .semicolon-man {
     height: 500px;
     width: 300px;
@@ -138,6 +147,10 @@ textarea {
   background-color: black;
   color: white;
 
+}
+
+.simspic{
+  width: 200px;
 }
 
 textarea#description {
@@ -210,9 +223,9 @@ textarea#description {
 }
 
 .bubblediv {
-  margin-top: -500px;
+  margin-top: -400px;
   margin-left: 80px;
-  height: 400px;
+  height: 480px;
   padding: 10px;
   border: #00ff00 3px solid;
   text-align: left;
